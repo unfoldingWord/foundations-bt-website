@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Foundations BT — Bible Translation Begins with Understanding</title>
+<style>
+:root { color-scheme: light; }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#231F20;background:#fff;font-size:16px;line-height:1.6;}
+a{text-decoration:none;}
+
+/* ── NAV ── */
+nav{background:#014263;padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;}
+.nav-brand{display:flex;align-items:center;gap:12px;}
+.nav-brand .name{color:#fff;font-size:18px;font-weight:900;letter-spacing:-0.3px;}
+.nav-links{display:flex;gap:1.75rem;align-items:center;}
+.nav-links a{color:rgba(255,255,255,0.7);font-size:14px;font-weight:600;}
+.nav-links a:hover{color:#fff;}
+.nav-cta{background:#E59D33;color:#fff!important;padding:8px 20px;border-radius:7px;font-weight:700!important;}
+
+/* ── BUTTONS ── */
+.btn-primary{background:#E59D33;color:#fff;font-size:14px;font-weight:800;padding:13px 32px;border-radius:8px;display:inline-block;}
+.btn-secondary{background:rgba(255,255,255,0.12);color:#fff;font-size:14px;font-weight:700;padding:13px 32px;border-radius:8px;border:1px solid rgba(255,255,255,0.35);display:inline-block;}
+.btn-teal{background:#31ADE3;color:#fff;font-size:14px;font-weight:700;padding:11px 24px;border-radius:8px;display:inline-block;}
+.btn-link{color:#014263;font-size:13px;font-weight:800;border:1px solid #014263;padding:8px 18px;border-radius:7px;display:inline-block;}
+.btn-link-amber{color:#633806;font-size:13px;font-weight:800;border:1px solid #E59D33;padding:8px 18px;border-radius:7px;display:inline-block;}
+.btn-dark-inv{background:#fff;color:#014263;font-size:16px;font-weight:900;padding:16px 48px;border-radius:9px;display:inline-block;}
+
+/* ── HERO ── */
+.hero{background:#014263;padding:4rem 3rem 5rem;text-align:center;}
+.eyebrow{display:inline-block;color:#70C9CC;font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:1rem;}
+.hero h1{color:#fff;font-size:44px;font-weight:900;line-height:1.1;margin-bottom:0;}
+.hero h1 em{color:#70C9CC;font-style:normal;}
+.hero-desc{color:rgba(255,255,255,0.75);font-size:16px;line-height:1.75;max-width:520px;margin:0 auto;}
+
+/* ── SECTIONS ── */
+section{padding:5rem 3rem;}
+.sec-warm{background:#F8F5F0;}
+.sec-teal{background:#EEF8F8;}
+.sec-dark{background:#014263;}
+.sec-amber{background:#E59D33;}
+.inner{max-width:840px;margin:0 auto;}
+
+.sec-label{font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;text-align:center;margin-bottom:0.6rem;}
+.sl-blue{color:#31ADE3;}
+.sl-teal{color:#0F7B72;}
+.sl-amber{color:#8A5A0A;}
+.sl-lt{color:rgba(255,255,255,0.65);}
+
+h2{font-size:32px;font-weight:900;text-align:center;color:#231F20;margin-bottom:1rem;line-height:1.15;}
+h2.on-dark{color:#fff;}
+h2.on-amber{color:#3D2200;}
+.sec-sub{text-align:center;color:#666;font-size:16px;line-height:1.75;max-width:560px;margin:0 auto 3rem;}
+.sec-sub.lt{color:rgba(255,255,255,0.8);}
+.sec-sub.on-amber{color:rgba(61,34,0,0.75);}
+
+/* ── WHY CARDS ── */
+.why-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;max-width:820px;margin:0 auto;}
+.why-card{border-radius:14px;padding:2rem 1.75rem;border:1px solid transparent;}
+.wc-b{background:#EAF4FB;border-color:rgba(49,173,227,0.2);}
+.wc-a{background:#FDF3E3;border-color:rgba(229,157,51,0.2);}
+.wc-t{background:#E6F6F5;border-color:rgba(112,201,204,0.3);}
+.why-card h3{font-size:18px;font-weight:900;margin-bottom:0.5rem;}
+.wh-b{color:#014263;}
+.wh-a{color:#633806;}
+.wh-t{color:#0F6E56;}
+.why-card p{font-size:14px;color:#555;line-height:1.65;}
+
+/* ── SIX ACTIVITIES ── */
+.six-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;max-width:860px;margin:0 auto;}
+.act-blocks{display:flex;flex-direction:column;gap:1rem;}
+.act-block{border-radius:12px;padding:1.5rem;}
+.ab-b{background:#EAF4FB;border-left:4px solid #31ADE3;}
+.ab-a{background:#FDF3E3;border-left:4px solid #E59D33;}
+.ab-t{background:#E6F6F5;border-left:4px solid #70C9CC;}
+.act-block h3{font-size:15px;font-weight:900;margin-bottom:0.75rem;}
+.ah-b{color:#014263;}
+.ah-a{color:#633806;}
+.ah-t{color:#0F6E56;}
+.act-item{font-size:13px;color:#444;display:flex;align-items:center;gap:8px;margin-bottom:5px;}
+.act-item::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.ai-b::before{background:#31ADE3;}
+.ai-a::before{background:#E59D33;}
+.ai-t::before{background:#70C9CC;}
+
+@keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+.w-spin{animation:spin 22s linear infinite;transform-box:fill-box;transform-origin:center;}
+
+/* ── LEARN CARDS (2×2 grid) ── */
+.learn-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:760px;margin:0 auto;}
+.learn-card{background:#fff;border:1px solid #E5E1DA;border-radius:14px;padding:2rem;}
+.learn-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;}
+.li-b{background:#E6F1FB;}
+.li-a{background:#FAEEDA;}
+.li-t{background:#E6F6F5;}
+.li-k{background:#EEE6F8;}
+.learn-card h3{font-size:17px;font-weight:900;color:#231F20;margin-bottom:0.5rem;}
+.learn-card p{font-size:14px;color:#555;line-height:1.65;margin-bottom:0.75rem;}
+.learn-bullets{list-style:none;padding:0;margin:0 0 1.25rem;}
+.learn-bullets li{font-size:13px;color:#555;display:flex;align-items:center;gap:7px;margin-bottom:4px;}
+.learn-bullets li::before{content:'';width:5px;height:5px;border-radius:50%;background:#8B5CF6;flex-shrink:0;}
+
+/* ── BT SERVANT CHAT ── */
+.bt-wrap{background:#014263;border-radius:16px;padding:2.5rem;max-width:620px;margin:0 auto;}
+.cb-u{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1rem;}
+.cb-lbl{color:rgba(255,255,255,0.4);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:0.4rem;}
+.cb-u p{color:#fff;font-size:15px;}
+.cb-b{background:rgba(112,201,204,0.12);border:1px solid rgba(112,201,204,0.25);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;}
+.cb-b p{color:rgba(255,255,255,0.85);font-size:15px;line-height:1.7;}
+.tag{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;display:inline-block;margin:3px;}
+
+/* ── FOOTER ── */
+footer{background:#231F20;padding:2.25rem 3rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+.f-brand{color:rgba(255,255,255,0.5);font-size:13px;line-height:1.6;}
+.f-brand strong{color:#31ADE3;}
+.f-brand a{color:#31ADE3;text-decoration:underline;text-underline-offset:2px;}
+.f-links{display:flex;gap:1.5rem;}
+.f-links a{color:rgba(255,255,255,0.35);font-size:13px;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <svg viewBox="0 0 100 110" width="38" height="42" xmlns="http://www.w3.org/2000/svg" aria-label="Foundations BT logo" style="flex-shrink:0;">
+      <polygon points="50,20 81.2,38 81.2,74 50,92 18.8,74 18.8,38" fill="#111" stroke="#111" stroke-width="14" stroke-linejoin="round"/>
+      <polygon points="50,20 81.2,38 50,56 18.8,38" fill="#70C9CC"/>
+      <polygon points="81.2,38 81.2,74 50,92 50,56" fill="#E59D33"/>
+      <polygon points="18.8,38 50,56 50,92 18.8,74" fill="#31ADE3"/>
+      <line x1="50" y1="56" x2="81.2" y2="38" stroke="#111" stroke-width="4.5"/>
+      <line x1="50" y1="56" x2="18.8" y2="38" stroke="#111" stroke-width="4.5"/>
+      <line x1="50" y1="56" x2="50" y2="92" stroke="#111" stroke-width="4.5"/>
+    </svg>
+    <span class="name">Foundations BT</span>
+  </div>
+  <div class="nav-links">
+    <a href="#explore-the-wheel">The Framework</a>
+    <a href="https://btservant.ai" target="_blank" rel="noopener">BT Servant</a>
+    <a href="#learn" class="nav-cta">Start Learning</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">Foundations of Bible Translation</div>
+  <h1>Bible Translation Begins<br>With <em>Understanding</em></h1>
+  <svg id="hero-wheel" viewBox="0 0 500 500" style="width:100%;max-width:580px;display:block;margin:2rem auto 1.5rem;"></svg>
+  <p class="hero-desc">Foundations BT provides a simple framework for understanding how Bible translation works.</p>
+  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
+    <a href="#learn" class="btn-primary">Start Learning</a>
+    <a href="#explore-the-wheel" class="btn-secondary">Explore the Framework</a>
+  </div>
+</section>
+
+<!-- WHY THE WHEEL MATTERS -->
+<section>
+  <div class="inner">
+    <div class="sec-label sl-blue">Why the Wheel Matters</div>
+    <p style="text-align:center;color:#666;font-size:16px;margin-bottom:0.6rem;">Methods may differ. Tools may differ..but</p>
+    <h2 style="margin-bottom:2.5rem;">Every faithful Bible translation process is built on three foundational principles.</h2>
+    <div class="why-cards">
+      <div class="why-card wc-b">
+        <h3 class="wh-b">Understand</h3>
+        <p>Learn the meaning of Scripture — what the text meant to its original audience.</p>
+      </div>
+      <div class="why-card wc-a">
+        <h3 class="wh-a">Translate</h3>
+        <p>Communicate the meaning in another language — clearly, naturally, and faithfully.</p>
+      </div>
+      <div class="why-card wc-t">
+        <h3 class="wh-t">Check</h3>
+        <p>Confirm faithfulness and approve language use so the community trusts the translation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIX ACTIVITIES -->
+<section id="explore-the-wheel" class="sec-warm">
+  <div class="inner">
+    <div class="sec-label sl-teal">Explore the Wheel</div>
+    <h2>The Six Activities of the Wheel</h2>
+    <p class="sec-sub">Each essential function is carried out through two key activities — working together in a continuous cycle.</p>
+    <div class="six-grid">
+      <div style="display:flex;justify-content:center;">
+        <svg id="six-wheel" viewBox="0 0 500 500" style="width:100%;max-width:400px;display:block;"></svg>
+      </div>
+      <div class="act-blocks">
+        <div class="act-block ab-b">
+          <h3 class="ah-b">Understand</h3>
+          <div class="act-item ai-b">Share Scripture</div>
+          <div class="act-item ai-b">Learn Meaning</div>
+        </div>
+        <div class="act-block ab-a">
+          <h3 class="ah-a">Translate</h3>
+          <div class="act-item ai-a">Communicate Meaning</div>
+          <div class="act-item ai-a">Record Translation</div>
+        </div>
+        <div class="act-block ab-t">
+          <h3 class="ah-t">Check</h3>
+          <div class="act-item ai-t">Confirm Faithfulness</div>
+          <div class="act-item ai-t">Approve Language Use</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEARN -->
+<section id="learn" class="sec-teal">
+  <div class="inner">
+    <div class="sec-label sl-teal">Learn Foundations BT</div>
+    <h2>Four Ways to Get Started</h2>
+    <p class="sec-sub">Choose the path that fits where you are.</p>
+    <div class="learn-grid">
+
+      <div class="learn-card" style="border-color:#D8CCF0;">
+        <div class="learn-icon li-k">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5B21B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>The Tano Story Series</h3>
+        <p style="margin-bottom:1rem;color:#444;">Discover the foundations of Bible translation through <em>The Tano Story Series: When the Church Translates</em> — a series of seven engaging story-based videos. Each episode is approximately five minutes long.</p>
+        <a href="https://www.youtube.com/@FoundationsBT/playlists" target="_blank" rel="noopener" style="color:#5B21B6;font-size:13px;font-weight:800;border:1px solid #8B5CF6;padding:8px 18px;border-radius:7px;display:inline-block;">Watch the Series</a>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-icon li-a">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#633806" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>BT Servant</h3>
+        <p>An AI-guided translation coach that helps you apply the Understand → Translate → Check framework.</p>
+        <a href="#" class="btn-link">Try BT Servant</a>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-icon li-t">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <h3>Open Bible Stories</h3>
+        <p>Get started with 50 Bible stories from Creation to Revelation — ideal for practicing translation together.</p>
+        <a href="https://www.openbiblestories.org/" target="_blank" rel="noopener" class="btn-link">Explore the Stories</a>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-icon li-b">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#014263" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        <h3>Video Course</h3>
+        <p>Learn the Foundations BT framework through short, engaging lessons at your own pace.</p>
+        <a href="#" class="btn-link">Watch the Course</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BT SERVANT -->
+<section>
+  <div class="inner">
+    <div class="sec-label sl-blue">BT Servant</div>
+    <h2>Your Translation Coach</h2>
+    <p class="sec-sub">Ask questions. Explore translation challenges.<br>Learn Bible translation through guided conversation. BT Servant helps you understand, translate, and check with trusted guidance, right when you need it.<br><br>Try BT Servant on WhatsApp, Telegram, Signal, or the web.</p>
+    <!-- BT Servant dual mockup: phone + browser -->
+    <div style="display:flex;gap:2rem;align-items:flex-end;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;">
+
+      <!-- PHONE MOCKUP -->
+      <div style="flex-shrink:0;width:200px;">
+        <div style="background:#111;border-radius:32px;padding:10px;box-shadow:0 24px 60px rgba(0,0,0,0.35);">
+          <!-- notch -->
+          <div style="background:#000;border-radius:14px;padding:8px 10px 0;overflow:hidden;">
+            <div style="background:#111;border-radius:16px 16px 0 0;height:20px;display:flex;align-items:center;justify-content:space-between;padding:0 8px;">
+              <span style="color:#fff;font-size:9px;font-weight:700;">5:36</span>
+              <div style="display:flex;gap:3px;align-items:center;">
+                <svg width="10" height="8" viewBox="0 0 10 8"><rect x="0" y="4" width="2" height="4" fill="#fff" rx="0.5"/><rect x="3" y="2.5" width="2" height="5.5" fill="#fff" rx="0.5"/><rect x="6" y="1" width="2" height="7" fill="#fff" rx="0.5"/></svg>
+                <svg width="10" height="8" viewBox="0 0 12 10"><path d="M6 1.5 C3 1.5 1 3.5 1 5.5" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M6 1.5 C9 1.5 11 3.5 11 5.5" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round"/><circle cx="6" cy="8" r="1.2" fill="#fff"/></svg>
+                <svg width="18" height="8" viewBox="0 0 18 8"><rect x="0" y="1" width="15" height="6" rx="2" stroke="#fff" stroke-width="1" fill="none"/><rect x="1" y="2" width="10" height="4" rx="1" fill="#fff"/><rect x="15.5" y="2.5" width="2" height="3" rx="1" fill="#fff"/></svg>
+              </div>
+            </div>
+            <!-- screen -->
+            <div style="background:#fff;border-radius:0 0 22px 22px;overflow:hidden;">
+              <!-- chat header -->
+              <div style="background:#f7f7f7;padding:8px 10px;display:flex;align-items:center;gap:7px;border-bottom:1px solid #eee;">
+                <span style="color:#31ADE3;font-size:11px;">‹</span>
+                <div style="background:#E59D33;width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="11" height="13" viewBox="0 0 12 14" fill="none"><path d="M2 1h8a1 1 0 0 1 1 1v10l-4-2-4 2V2a1 1 0 0 1 1-1Z" fill="#fff"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:10px;font-weight:800;color:#111;line-height:1.2;">BT Servant</div>
+                  <div style="font-size:8px;color:#888;">unfoldingWord BT Servant</div>
+                </div>
+              </div>
+              <!-- messages -->
+              <div style="background:#ece5dd;padding:8px;min-height:240px;">
+                <div style="text-align:center;margin-bottom:8px;"><span style="background:rgba(255,255,255,0.6);font-size:8px;color:#666;padding:2px 8px;border-radius:8px;">Today</span></div>
+                <div style="background:#fff;border-radius:8px 8px 8px 0;padding:8px;font-size:8px;color:#111;line-height:1.5;max-width:90%;">
+                  I'm here to assist with general Bible translation tasks. Here's what I can do:
+                  <ul style="padding-left:12px;margin:5px 0;list-style:disc;">
+                    <li style="margin-bottom:2px;"><strong>Summarize a passage:</strong> Books, chapters, or verses.</li>
+                    <li style="margin-bottom:2px;"><strong>FIA process guidance:</strong> Explain or apply steps.</li>
+                    <li style="margin-bottom:2px;"><strong>Translation helps:</strong> Typical challenges.</li>
+                    <li style="margin-bottom:2px;"><strong>Keywords:</strong> Key terms in a passage.</li>
+                    <li><strong>Set response language:</strong> Choose your language.</li>
+                  </ul>
+                  Which of these would you like me to do?
+                  <div style="text-align:right;font-size:7px;color:#aaa;margin-top:4px;">5:36 PM</div>
+                </div>
+              </div>
+              <!-- input bar -->
+              <div style="background:#f0f0f0;padding:5px 8px;display:flex;align-items:center;gap:6px;border-top:1px solid #ddd;">
+                <span style="color:#888;font-size:14px;line-height:1;">+</span>
+                <div style="flex:1;background:#fff;border-radius:16px;padding:4px 8px;font-size:8px;color:#bbb;">Message</div>
+                <div style="width:18px;height:18px;border-radius:50%;background:#E59D33;display:flex;align-items:center;justify-content:center;">
+                  <svg width="8" height="8" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="#E59D33" stroke="#fff" stroke-width="1"/><path d="M3.5 5h3M5 3.5v3" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BROWSER MOCKUP -->
+      <div style="flex:1;min-width:320px;max-width:520px;background:#f8f7f5;border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,0.18);overflow:hidden;border:1px solid #e8e3dc;">
+        <!-- chrome bar -->
+        <div style="background:#f0ede8;padding:10px 14px;display:flex;align-items:center;gap:6px;border-bottom:1px solid #e2ddd6;">
+          <span style="width:11px;height:11px;border-radius:50%;background:#FF5F57;display:inline-block;"></span>
+          <span style="width:11px;height:11px;border-radius:50%;background:#FFBD2E;display:inline-block;"></span>
+          <span style="width:11px;height:11px;border-radius:50%;background:#28CA41;display:inline-block;"></span>
+        </div>
+        <!-- app header -->
+        <div style="background:#f8f7f5;padding:12px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #e8e3dc;">
+          <div style="background:#E59D33;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="16" height="18" viewBox="0 0 12 14" fill="none"><path d="M2 1h8a1 1 0 0 1 1 1v10l-4-2-4 2V2a1 1 0 0 1 1-1Z" fill="#fff"/></svg>
+          </div>
+          <span style="font-size:16px;font-weight:800;color:#1a1a1a;flex:1;">BTS Web</span>
+          <div style="width:32px;height:32px;border-radius:50%;background:#8B6E4E;display:flex;align-items:center;justify-content:center;">
+            <span style="color:#fff;font-size:14px;font-weight:800;">B</span>
+          </div>
+        </div>
+        <!-- messages area -->
+        <div style="padding:16px;min-height:240px;display:flex;flex-direction:column;gap:12px;">
+          <!-- user message -->
+          <div style="display:flex;justify-content:flex-end;">
+            <div style="background:#e8e0d5;border-radius:18px 18px 4px 18px;padding:10px 16px;font-size:14px;color:#1a1a1a;max-width:75%;">Help me translate John 3:16</div>
+          </div>
+          <!-- bot response -->
+          <div style="font-size:13px;color:#2a2a2a;line-height:1.7;max-width:90%;">
+            <p style="margin-bottom:8px;">Welcome! I'm <strong>BT Servant</strong>, your Bible translation assistant. 🙂</p>
+            <p style="margin-bottom:8px;">I'd love to help you translate <strong>John 3:16</strong>!</p>
+            <p style="margin-bottom:8px;">Before we dive into translation, I need to walk you through the <strong>Understand</strong> phase first. This is an important part of the translation process — you need to deeply understand a passage before you can faithfully translate it.</p>
+            <p style="margin-bottom:6px;">The process I use is called <strong>UTC</strong>:</p>
+            <ul style="padding-left:20px;list-style:disc;color:#2a2a2a;">
+              <li>Understand the passage</li>
+              <li>Translate the passage</li>
+              <li>Check the translation</li>
+            </ul>
+          </div>
+        </div>
+        <!-- input bar -->
+        <div style="padding:10px 14px;border-top:1px solid #e8e3dc;display:flex;align-items:center;gap:10px;">
+          <div style="flex:1;border:1px solid #d8d3cc;border-radius:24px;padding:9px 16px;font-size:13px;color:#aaa;background:#fff;">How can I help you today?</div>
+          <div style="width:36px;height:36px;border-radius:50%;background:#E59D33;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+          </div>
+        </div>
+        <!-- version footer -->
+        <div style="text-align:center;padding:8px;font-size:11px;color:#aaa;">BT Servant Web v1.6.3</div>
+      </div>
+
+    </div>
+    <div style="text-align:center;">
+      <a href="#" class="btn-teal" style="font-size:15px;padding:14px 40px;">Try BT Servant</a>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="sec-amber">
+  <div style="text-align:center;padding:5rem 3rem;">
+    <div class="sec-label sl-lt" style="letter-spacing:2.5px;">Join the Global Church</div>
+    <h2 class="on-amber" style="margin-bottom:1rem;">Across the world, churches are working together to<br>understand, translate and check to share God's Word.</h2>
+    <p style="color:rgba(61,34,0,0.72);font-size:16px;max-width:500px;margin:0 auto 2.5rem;">Join the global Church in learning the foundational principles that make faithful Bible translation possible.</p>
+    <a href="#" class="btn-dark-inv">Start Learning</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-brand">
+    <strong>Foundations BT</strong> is an initiative of <a href="#">unfoldingWord</a>.<br>
+    All resources are freely available and under the <a href="#">CC BY-SA license</a>.
+  </div>
+  <div class="f-links">
+    <a href="#">Privacy</a>
+    <a href="#">Contact</a>
+    <a href="#">unfoldingWord.org</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  function p2c(cx,cy,r,a){var rad=(a-90)*Math.PI/180;return{x:cx+r*Math.cos(rad),y:cy+r*Math.sin(rad)};}
+  function arc(cx,cy,ro,ri,s,e){
+    var p1=p2c(cx,cy,ro,s),p2=p2c(cx,cy,ro,e),p3=p2c(cx,cy,ri,e),p4=p2c(cx,cy,ri,s);
+    var span=((e-s)+360)%360,laf=span>180?1:0;
+    return'M'+p1.x.toFixed(2)+','+p1.y.toFixed(2)+' A'+ro+','+ro+' 0 '+laf+' 1 '+p2.x.toFixed(2)+','+p2.y.toFixed(2)+' L'+p3.x.toFixed(2)+','+p3.y.toFixed(2)+' A'+ri+','+ri+' 0 '+laf+' 0 '+p4.x.toFixed(2)+','+p4.y.toFixed(2)+'Z';
+  }
+
+  function buildWheel(id, opts){
+    var el=document.getElementById(id);
+    if(!el) return;
+    var CX=250,CY=252,RO=158,RI=90,RM=124;
+    var segs=[
+      {label:'Understand',s:-57,e:57, fill:'#31ADE3',tc:'#fff',   mid:0},
+      {label:'Translate', s:63, e:177,fill:'#E59D33',tc:'#3D2200',mid:120},
+      {label:'Check',     s:183,e:297,fill:'#70C9CC',tc:'#0F3D36',mid:240}
+    ];
+    var arrs=[{at:60,c:'#E59D33',mk:id+'_a1'},{at:180,c:'#70C9CC',mk:id+'_a2'},{at:300,c:'#31ADE3',mk:id+'_a3'}];
+    var cm=[id+'_c1',id+'_c2',id+'_c3'],cc=['#31ADE3','#E59D33','#70C9CC'];
+    var h='<defs>';
+    arrs.forEach(function(a){h+='<marker id="'+a.mk+'" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto"><path d="M0,0 L9,3.5 L0,7 Z" fill="'+a.c+'"/></marker>';});
+    cm.forEach(function(mid,i){h+='<marker id="'+mid+'" markerWidth="7" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="'+cc[i]+'"/></marker>';});
+    h+='</defs>';
+    h+='<g>';
+    segs.forEach(function(seg){h+='<path d="'+arc(CX,CY,RO,RI,seg.s,seg.e)+'" fill="'+seg.fill+'"/>';});
+    var RA=RO+26;
+    arrs.forEach(function(g){
+      var sp=p2c(CX,CY,RA,g.at-16),ep=p2c(CX,CY,RA,g.at+16);
+      h+='<path d="M'+sp.x.toFixed(1)+','+sp.y.toFixed(1)+' A'+RA+','+RA+' 0 0 1 '+ep.x.toFixed(1)+','+ep.y.toFixed(1)+'" fill="none" stroke="'+g.c+'" stroke-width="3" stroke-linecap="round" marker-end="url(#'+g.mk+')"/>';
+    });
+    h+='</g>';
+    var cFill=opts&&opts.darkCenter?'#013050':'#fff';
+    var cStroke=opts&&opts.darkCenter?'rgba(112,201,204,0.25)':'#E5E1DA';
+    h+='<circle cx="'+CX+'" cy="'+CY+'" r="'+(RI-7)+'" fill="'+cFill+'" stroke="'+cStroke+'" stroke-width="1.5"/>';
+    var cr=28;
+    [[0,100],[120,220],[240,340]].forEach(function(pair,i){
+      var s2=p2c(CX,CY,cr,pair[0]+8),e2=p2c(CX,CY,cr,pair[1]-4);
+      var ca='rgba('+[['49,173,227','229,157,51','112,201,204'][i]]+',.45)';
+      h+='<path d="M'+s2.x.toFixed(1)+','+s2.y.toFixed(1)+' A'+cr+','+cr+' 0 0 1 '+e2.x.toFixed(1)+','+e2.y.toFixed(1)+'" fill="none" stroke="'+ca+'" stroke-width="2" marker-end="url(#'+cm[i]+')"/>';
+    });
+    if(!opts||opts.labels!==false){
+      segs.forEach(function(seg){
+        var lp=p2c(CX,CY,RM,seg.mid);
+        h+='<text x="'+lp.x.toFixed(1)+'" y="'+lp.y.toFixed(1)+'" text-anchor="middle" dominant-baseline="middle" fill="'+seg.tc+'" font-size="13.5" font-weight="900" font-family="sans-serif">'+seg.label+'</text>';
+      });
+    }
+    el.innerHTML=h;
+  }
+
+  buildWheel('hero-wheel', {darkCenter:false});
+  buildWheel('six-wheel',  {darkCenter:false});
+})();
+</script>
+</body>
+</html>
