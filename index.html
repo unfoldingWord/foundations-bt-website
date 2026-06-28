@@ -31,8 +31,8 @@ nav{background:#014263;padding:0 3rem;display:flex;align-items:center;justify-co
 .hero{background:#014263;padding:4rem 3rem 5rem;text-align:center;}
 .eyebrow{display:inline-block;color:#70C9CC;font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:1rem;}
 .hero h1{color:#fff;font-size:44px;font-weight:900;line-height:1.1;margin-bottom:0;}
-.hero h1 em{color:#70C9CC;font-style:normal;}
-.hero-desc{color:rgba(255,255,255,0.75);font-size:16px;line-height:1.75;max-width:520px;margin:0 auto;}
+.hero h1 em{color:#31ADE3;font-style:normal;}
+.hero-desc{color:rgba(255,255,255,0.75);font-size:16px;line-height:1.75;white-space:nowrap;margin:0 auto;}
 
 /* ── SECTIONS ── */
 section{padding:5rem 3rem;}
@@ -111,12 +111,18 @@ h2.on-amber{color:#3D2200;}
 .tag{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;display:inline-block;margin:3px;}
 
 /* ── FOOTER ── */
-footer{background:#231F20;padding:2.25rem 3rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
-.f-brand{color:rgba(255,255,255,0.5);font-size:13px;line-height:1.6;}
-.f-brand strong{color:#31ADE3;}
-.f-brand a{color:#31ADE3;text-decoration:underline;text-underline-offset:2px;}
+footer{background:#1A1714;padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.08);}
+.f-left{display:flex;flex-direction:column;gap:0.5rem;}
+.f-brand-row{display:flex;align-items:center;gap:10px;}
+.f-brand-name{color:#fff;font-size:16px;font-weight:900;letter-spacing:-0.2px;}
+.f-brand-tagline{color:rgba(255,255,255,0.45);font-size:13px;}
+.f-brand-tagline a{color:#31ADE3;text-decoration:none;font-weight:600;}
+.f-brand-tagline a:hover{text-decoration:underline;}
+.f-license{color:rgba(255,255,255,0.3);font-size:12px;margin-top:0.25rem;}
+.f-right{display:flex;flex-direction:column;align-items:flex-end;gap:0.75rem;}
 .f-links{display:flex;gap:1.5rem;}
-.f-links a{color:rgba(255,255,255,0.35);font-size:13px;}
+.f-links a{color:rgba(255,255,255,0.4);font-size:13px;font-weight:500;}
+.f-links a:hover{color:#fff;}
 </style>
 </head>
 <body>
@@ -136,7 +142,7 @@ footer{background:#231F20;padding:2.25rem 3rem;display:flex;align-items:center;j
     <span class="name">Foundations BT</span>
   </div>
   <div class="nav-links">
-    <a href="#explore-the-wheel">The Framework</a>
+    <a href="#explore-the-framework">The Framework</a>
     <a href="https://btservant.ai" target="_blank" rel="noopener">BT Servant</a>
     <a href="#learn" class="nav-cta">Start Learning</a>
   </div>
@@ -147,17 +153,17 @@ footer{background:#231F20;padding:2.25rem 3rem;display:flex;align-items:center;j
   <div class="eyebrow">Foundations of Bible Translation</div>
   <h1>Bible Translation Begins<br>With <em>Understanding</em></h1>
   <svg id="hero-wheel" viewBox="0 0 500 500" style="width:100%;max-width:580px;display:block;margin:2rem auto 1.5rem;"></svg>
-  <p class="hero-desc">Foundations BT provides a simple framework for understanding how Bible translation works.</p>
+  <p class="hero-desc">Foundations BT provides a simple framework for understanding Bible translation.</p>
   <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
     <a href="#learn" class="btn-primary">Start Learning</a>
-    <a href="#explore-the-wheel" class="btn-secondary">Explore the Framework</a>
+    <a href="#explore-the-framework" class="btn-secondary">Explore the Framework</a>
   </div>
 </section>
 
 <!-- WHY THE WHEEL MATTERS -->
 <section>
   <div class="inner">
-    <div class="sec-label sl-blue">Why the Wheel Matters</div>
+    <div class="sec-label sl-blue">Why the Framework Matters</div>
     <p style="text-align:center;color:#666;font-size:16px;margin-bottom:0.6rem;">Methods may differ. Tools may differ..but</p>
     <h2 style="margin-bottom:2.5rem;">Every faithful Bible translation process is built on three foundational principles.</h2>
     <div class="why-cards">
@@ -178,10 +184,10 @@ footer{background:#231F20;padding:2.25rem 3rem;display:flex;align-items:center;j
 </section>
 
 <!-- SIX ACTIVITIES -->
-<section id="explore-the-wheel" class="sec-warm">
+<section id="explore-the-framework" class="sec-warm">
   <div class="inner">
-    <div class="sec-label sl-teal">Explore the Wheel</div>
-    <h2>The Six Activities of the Wheel</h2>
+    <div class="sec-label sl-teal">Explore the Framework</div>
+    <h2>The Six Activities of the Framework</h2>
     <p class="sec-sub">Each essential function is carried out through two key activities — working together in a continuous cycle.</p>
     <div class="six-grid">
       <div style="display:flex;justify-content:center;">
@@ -221,7 +227,7 @@ footer{background:#231F20;padding:2.25rem 3rem;display:flex;align-items:center;j
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5B21B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         </div>
         <h3>The Tano Story Series</h3>
-        <p style="margin-bottom:1rem;color:#444;">Discover the foundations of Bible translation through <em>The Tano Story Series: When the Church Translates</em> — a series of seven engaging story-based videos. Each episode is approximately five minutes long.</p>
+        <p style="margin-bottom:1rem;color:#444;">Discover the foundations of Bible translation through <em>The Tano Story Series: When the Church Translates</em> — seven engaging story-based videos, each approximately five minutes long and available in 12 languages.</p>
         <a href="https://www.youtube.com/@FoundationsBT/playlists" target="_blank" rel="noopener" style="color:#5B21B6;font-size:13px;font-weight:800;border:1px solid #8B5CF6;padding:8px 18px;border-radius:7px;display:inline-block;">Watch the Series</a>
       </div>
 
@@ -230,8 +236,8 @@ footer{background:#231F20;padding:2.25rem 3rem;display:flex;align-items:center;j
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#633806" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         </div>
         <h3>BT Servant</h3>
-        <p>An AI-guided translation coach that helps you apply the Understand → Translate → Check framework.</p>
-        <a href="#" class="btn-link">Try BT Servant</a>
+        <p>Learn with BT Servant through guided conversation. BT Servant helps you understand and apply the principles of faithful Bible translation.</p>
+        <a href="https://www.btservant.ai/" target="_blank" rel="noopener" class="btn-link">Try BT Servant</a>
       </div>
 
       <div class="learn-card">
@@ -239,7 +245,7 @@ footer{background:#231F20;padding:2.25rem 3rem;display:flex;align-items:center;j
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
         </div>
         <h3>Open Bible Stories</h3>
-        <p>Get started with 50 Bible stories from Creation to Revelation — ideal for practicing translation together.</p>
+        <p>Get started with 50 Bible stories from Creation to Revelation. A simple yet powerful resource for discipleship and evangelism.</p>
         <a href="https://www.openbiblestories.org/" target="_blank" rel="noopener" class="btn-link">Explore the Stories</a>
       </div>
 
@@ -247,9 +253,9 @@ footer{background:#231F20;padding:2.25rem 3rem;display:flex;align-items:center;j
         <div class="learn-icon li-b">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#014263" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
         </div>
-        <h3>Video Course</h3>
-        <p>Learn the Foundations BT framework through short, engaging lessons at your own pace.</p>
-        <a href="#" class="btn-link">Watch the Course</a>
+        <h3>Foundations BT Video Course</h3>
+        <p>A seven-session guided learning journey through short sessions, reflection questions, and the Tano Story Series. You'll discover the principles that guide faithful Bible translation.</p>
+        <a href="https://youtube.com/playlist?list=PLJRSsc2IDl00&si=DEKINUfMi14C50bf" target="_blank" rel="noopener" class="btn-link">Watch the Course</a>
       </div>
 
     </div>
@@ -261,7 +267,7 @@ footer{background:#231F20;padding:2.25rem 3rem;display:flex;align-items:center;j
   <div class="inner">
     <div class="sec-label sl-blue">BT Servant</div>
     <h2>Your Translation Coach</h2>
-    <p class="sec-sub">Ask questions. Explore translation challenges.<br>Learn Bible translation through guided conversation. BT Servant helps you understand, translate, and check with trusted guidance, right when you need it.<br><br>Try BT Servant on WhatsApp, Telegram, Signal, or the web.</p>
+    <p class="sec-sub">Learn Bible translation through guided conversation. BT Servant helps you understand, translate, and check with trusted guidance, right when you need it. Just Ask.<br><br>Try BT Servant on WhatsApp, Telegram, Signal, or the web.</p>
     <!-- BT Servant dual mockup: phone + browser -->
     <div style="display:flex;gap:2rem;align-items:flex-end;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;">
 
@@ -381,20 +387,51 @@ footer{background:#231F20;padding:2.25rem 3rem;display:flex;align-items:center;j
     <div class="sec-label sl-lt" style="letter-spacing:2.5px;">Join the Global Church</div>
     <h2 class="on-amber" style="margin-bottom:1rem;">Across the world, churches are working together to<br>understand, translate and check to share God's Word.</h2>
     <p style="color:rgba(61,34,0,0.72);font-size:16px;max-width:500px;margin:0 auto 2.5rem;">Join the global Church in learning the foundational principles that make faithful Bible translation possible.</p>
-    <a href="#" class="btn-dark-inv">Start Learning</a>
+    <a href="#learn" class="btn-dark-inv">Start Learning</a>
   </div>
 </div>
 
+<!-- ADDITIONAL RESOURCES -->
+<section style="padding:3.5rem 3rem;background:#F8F5F0;border-top:1px solid #EDE8E1;">
+  <div style="max-width:680px;margin:0 auto;text-align:center;">
+    <p style="font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:0.75rem;">Want to go deeper?</p>
+    <p style="color:#555;font-size:15px;line-height:1.75;margin-bottom:2rem;">Foundations BT is just the beginning. If you'd like to explore further, these two resources go deeper into Bible translation principles and practice.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;max-width:640px;margin:0 auto;">
+      <a href="https://translationcore.com/" target="_blank" rel="noopener" style="background:#fff;border:1px solid #DDD8D0;border-radius:12px;padding:1.5rem 1.25rem;display:block;text-decoration:none;text-align:left;">
+        <div style="font-size:15px;font-weight:800;color:#31ADE3;text-decoration:underline;text-underline-offset:3px;margin-bottom:0.4rem;">translationCore</div>
+        <div style="font-size:13px;color:#666;line-height:1.6;">Tools and resources to support and strengthen Bible translation quality.</div>
+      </a>
+      <a href="https://churchbased.bible/" target="_blank" rel="noopener" style="background:#fff;border:1px solid #DDD8D0;border-radius:12px;padding:1.5rem 1.25rem;display:block;text-decoration:none;text-align:left;">
+        <div style="font-size:15px;font-weight:800;color:#31ADE3;text-decoration:underline;text-underline-offset:3px;margin-bottom:0.4rem;">Church-Based Bible Translation</div>
+        <div style="font-size:13px;color:#666;line-height:1.6;">Learn more about the church-based model for Bible translation and how local churches are leading the way.</div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
-  <div class="f-brand">
-    <strong>Foundations BT</strong> is an initiative of <a href="#">unfoldingWord</a>.<br>
-    All resources are freely available and under the <a href="#">CC BY-SA license</a>.
+  <div class="f-left">
+    <div class="f-brand-row">
+      <svg viewBox="0 0 100 110" width="32" height="35" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+        <polygon points="50,20 81.2,38 81.2,74 50,92 18.8,74 18.8,38" fill="#222" stroke="#222" stroke-width="14" stroke-linejoin="round"/>
+        <polygon points="50,20 81.2,38 50,56 18.8,38" fill="#70C9CC"/>
+        <polygon points="81.2,38 81.2,74 50,92 50,56" fill="#E59D33"/>
+        <polygon points="18.8,38 50,56 50,92 18.8,74" fill="#31ADE3"/>
+        <line x1="50" y1="56" x2="81.2" y2="38" stroke="#222" stroke-width="4.5"/>
+        <line x1="50" y1="56" x2="18.8" y2="38" stroke="#222" stroke-width="4.5"/>
+        <line x1="50" y1="56" x2="50" y2="92" stroke="#222" stroke-width="4.5"/>
+      </svg>
+      <span class="f-brand-name">Foundations BT</span>
+    </div>
+    <div class="f-brand-tagline">An initiative of <a href="https://unfoldingword.org" target="_blank" rel="noopener">unfoldingWord</a></div>
+    <div class="f-license">All resources are freely available under the CC BY-SA license.</div>
   </div>
-  <div class="f-links">
-    <a href="#">Privacy</a>
-    <a href="#">Contact</a>
-    <a href="#">unfoldingWord.org</a>
+  <div class="f-right">
+    <div class="f-links">
+      <a href="https://unfoldingword.org/contact/" target="_blank" rel="noopener">Contact</a>
+      <a href="https://unfoldingword.org" target="_blank" rel="noopener">unfoldingWord.org</a>
+    </div>
   </div>
 </footer>
 
@@ -412,9 +449,9 @@ footer{background:#231F20;padding:2.25rem 3rem;display:flex;align-items:center;j
     if(!el) return;
     var CX=250,CY=252,RO=158,RI=90,RM=124;
     var segs=[
-      {label:'Understand',s:-57,e:57, fill:'#31ADE3',tc:'#fff',   mid:0},
-      {label:'Translate', s:63, e:177,fill:'#E59D33',tc:'#3D2200',mid:120},
-      {label:'Check',     s:183,e:297,fill:'#70C9CC',tc:'#0F3D36',mid:240}
+      {label:'Understand',s:-57,e:57, fill:'#31ADE3',tc:'#fff',mid:0},
+      {label:'Translate', s:63, e:177,fill:'#E59D33',tc:'#fff',mid:120},
+      {label:'Check',     s:183,e:297,fill:'#70C9CC',tc:'#fff',mid:240}
     ];
     var arrs=[{at:60,c:'#E59D33',mk:id+'_a1'},{at:180,c:'#70C9CC',mk:id+'_a2'},{at:300,c:'#31ADE3',mk:id+'_a3'}];
     var cm=[id+'_c1',id+'_c2',id+'_c3'],cc=['#31ADE3','#E59D33','#70C9CC'];
