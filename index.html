@@ -30,9 +30,9 @@ nav{background:#014263;padding:0 3rem;display:flex;align-items:center;justify-co
 /* ── HERO ── */
 .hero{background:#014263;padding:4rem 3rem 5rem;text-align:center;}
 .eyebrow{display:inline-block;color:#70C9CC;font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:1rem;}
-.hero h1{color:#fff;font-size:44px;font-weight:900;line-height:1.1;margin-bottom:0;}
-.hero h1 em{color:#31ADE3;font-style:normal;}
-.hero-desc{color:rgba(255,255,255,0.75);font-size:16px;line-height:1.75;white-space:nowrap;margin:0 auto;}
+.hero h1{color:#fff;font-size:52px;font-weight:900;line-height:1.05;margin-bottom:0.5rem;letter-spacing:-1px;}
+.hero-tagline{color:#70C9CC;font-size:18px;font-weight:600;margin-bottom:0;line-height:1.4;}
+.hero-desc{color:rgba(255,255,255,0.65);font-size:15px;line-height:1.75;white-space:nowrap;margin:0 auto;}
 
 /* ── SECTIONS ── */
 section{padding:5rem 3rem;}
@@ -110,6 +110,22 @@ h2.on-amber{color:#3D2200;}
 .cb-b p{color:rgba(255,255,255,0.85);font-size:15px;line-height:1.7;}
 .tag{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;display:inline-block;margin:3px;}
 
+/* ── CALLOUTS ── */
+.callout-group{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.25rem;}
+.callout-group:last-child{margin-bottom:0;}
+.callout-label{font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:0.35rem;padding-left:14px;}
+.cl-b{color:#014263;}
+.cl-a{color:#633806;}
+.cl-t{color:#0F6E56;}
+.callout-item{position:relative;border-radius:7px;padding:7px 14px 7px 18px;font-size:13px;font-weight:700;line-height:1.3;}
+.callout-item::before{content:'';position:absolute;left:-7px;top:50%;transform:translateY(-50%);border:6px solid transparent;}
+.ci-b{background:#EAF4FB;color:#014263;}
+.ci-b::before{border-right-color:#31ADE3;}
+.ci-a{background:#FDF3E3;color:#633806;}
+.ci-a::before{border-right-color:#E59D33;}
+.ci-t{background:#E6F6F5;color:#0F6E56;}
+.ci-t::before{border-right-color:#70C9CC;}
+
 /* ── FOOTER ── */
 footer{background:#1A1714;padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.08);}
 .f-left{display:flex;flex-direction:column;gap:0.5rem;}
@@ -150,10 +166,9 @@ footer{background:#1A1714;padding:2.5rem 3rem;display:flex;align-items:center;ju
 
 <!-- HERO -->
 <section class="hero">
-  <div class="eyebrow">Foundations of Bible Translation</div>
-  <h1>Bible Translation Begins<br>With <em>Understanding</em></h1>
+  <h1>Bible Translation Begins With <span style="color:#31ADE3;">Understanding</span></h1>
   <svg id="hero-wheel" viewBox="0 0 500 500" style="width:100%;max-width:580px;display:block;margin:2rem auto 1.5rem;"></svg>
-  <p class="hero-desc">Foundations BT provides a simple framework for understanding Bible translation.</p>
+  <p class="hero-desc">A simple framework for understanding Bible translation.</p>
   <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
     <a href="#learn" class="btn-primary">Start Learning</a>
     <a href="#explore-the-framework" class="btn-secondary">Explore the Framework</a>
@@ -163,8 +178,6 @@ footer{background:#1A1714;padding:2.5rem 3rem;display:flex;align-items:center;ju
 <!-- WHY THE WHEEL MATTERS -->
 <section>
   <div class="inner">
-    <div class="sec-label sl-blue">Why the Framework Matters</div>
-    <p style="text-align:center;color:#666;font-size:16px;margin-bottom:0.6rem;">Methods may differ. Tools may differ..but</p>
     <h2 style="margin-bottom:2.5rem;">Every faithful Bible translation process is built on three foundational principles.</h2>
     <div class="why-cards">
       <div class="why-card wc-b">
@@ -186,9 +199,7 @@ footer{background:#1A1714;padding:2.5rem 3rem;display:flex;align-items:center;ju
 <!-- SIX ACTIVITIES -->
 <section id="explore-the-framework" class="sec-warm">
   <div class="inner">
-    <div class="sec-label sl-teal">Explore the Framework</div>
     <h2>The Six Activities of the Framework</h2>
-    <p class="sec-sub">Each essential function is carried out through two key activities — working together in a continuous cycle.</p>
     <div class="six-grid">
       <div style="display:flex;justify-content:center;">
         <svg id="six-wheel" viewBox="0 0 500 500" style="width:100%;max-width:400px;display:block;"></svg>
@@ -196,18 +207,24 @@ footer{background:#1A1714;padding:2.5rem 3rem;display:flex;align-items:center;ju
       <div class="act-blocks">
         <div class="act-block ab-b">
           <h3 class="ah-b">Understand</h3>
-          <div class="act-item ai-b">Share Scripture</div>
-          <div class="act-item ai-b">Learn Meaning</div>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.4rem;">
+            <li style="display:flex;align-items:center;gap:0.5rem;font-size:14px;color:#444;"><span style="width:7px;height:7px;border-radius:50%;background:#31ADE3;flex-shrink:0;"></span>Share Scripture</li>
+            <li style="display:flex;align-items:center;gap:0.5rem;font-size:14px;color:#444;"><span style="width:7px;height:7px;border-radius:50%;background:#31ADE3;flex-shrink:0;"></span>Learn Meaning</li>
+          </ul>
         </div>
         <div class="act-block ab-a">
           <h3 class="ah-a">Translate</h3>
-          <div class="act-item ai-a">Communicate Meaning</div>
-          <div class="act-item ai-a">Record Translation</div>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.4rem;">
+            <li style="display:flex;align-items:center;gap:0.5rem;font-size:14px;color:#444;"><span style="width:7px;height:7px;border-radius:50%;background:#E59D33;flex-shrink:0;"></span>Communicate Meaning</li>
+            <li style="display:flex;align-items:center;gap:0.5rem;font-size:14px;color:#444;"><span style="width:7px;height:7px;border-radius:50%;background:#E59D33;flex-shrink:0;"></span>Record Translation</li>
+          </ul>
         </div>
         <div class="act-block ab-t">
           <h3 class="ah-t">Check</h3>
-          <div class="act-item ai-t">Confirm Faithfulness</div>
-          <div class="act-item ai-t">Approve Language Use</div>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.4rem;">
+            <li style="display:flex;align-items:center;gap:0.5rem;font-size:14px;color:#444;"><span style="width:7px;height:7px;border-radius:50%;background:#70C9CC;flex-shrink:0;"></span>Confirm Faithfulness</li>
+            <li style="display:flex;align-items:center;gap:0.5rem;font-size:14px;color:#444;"><span style="width:7px;height:7px;border-radius:50%;background:#70C9CC;flex-shrink:0;"></span>Approve Language Use</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -217,9 +234,7 @@ footer{background:#1A1714;padding:2.5rem 3rem;display:flex;align-items:center;ju
 <!-- LEARN -->
 <section id="learn" class="sec-teal">
   <div class="inner">
-    <div class="sec-label sl-teal">Learn Foundations BT</div>
     <h2>Four Ways to Get Started</h2>
-    <p class="sec-sub">Choose the path that fits where you are.</p>
     <div class="learn-grid">
 
       <div class="learn-card" style="border-color:#D8CCF0;">
@@ -265,8 +280,8 @@ footer{background:#1A1714;padding:2.5rem 3rem;display:flex;align-items:center;ju
 <!-- BT SERVANT -->
 <section>
   <div class="inner">
-    <div class="sec-label sl-blue">BT Servant</div>
-    <h2>Your Translation Coach</h2>
+    <div style="text-align:center;font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:#999;margin-bottom:0.5rem;">Your Translation Coach</div>
+    <h2>BT Servant</h2>
     <p class="sec-sub">Learn Bible translation through guided conversation. BT Servant helps you understand, translate, and check with trusted guidance, right when you need it. Just Ask.<br><br>Try BT Servant on WhatsApp, Telegram, Signal, or the web.</p>
     <!-- BT Servant dual mockup: phone + browser -->
     <div style="display:flex;gap:2rem;align-items:flex-end;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;">
@@ -376,7 +391,7 @@ footer{background:#1A1714;padding:2.5rem 3rem;display:flex;align-items:center;ju
 
     </div>
     <div style="text-align:center;">
-      <a href="#" class="btn-teal" style="font-size:15px;padding:14px 40px;">Try BT Servant</a>
+      <a href="https://www.btservant.ai/" target="_blank" rel="noopener" class="btn-teal" style="font-size:15px;padding:14px 40px;">Try BT Servant</a>
     </div>
   </div>
 </section>
@@ -385,8 +400,7 @@ footer{background:#1A1714;padding:2.5rem 3rem;display:flex;align-items:center;ju
 <div class="sec-amber">
   <div style="text-align:center;padding:5rem 3rem;">
     <div class="sec-label sl-lt" style="letter-spacing:2.5px;">Join the Global Church</div>
-    <h2 class="on-amber" style="margin-bottom:1rem;">Across the world, churches are working together to<br>understand, translate and check to share God's Word.</h2>
-    <p style="color:rgba(61,34,0,0.72);font-size:16px;max-width:500px;margin:0 auto 2.5rem;">Join the global Church in learning the foundational principles that make faithful Bible translation possible.</p>
+    <h2 class="on-amber" style="margin-bottom:2rem;">Across the world, churches are working together to<br>understand, translate and check to share God's Word.</h2>
     <a href="#learn" class="btn-dark-inv">Start Learning</a>
   </div>
 </div>
