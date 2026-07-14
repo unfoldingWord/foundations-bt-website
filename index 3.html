@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Foundations BT — Bible Translation Begins with Understanding</title>
+<style>
+:root { color-scheme: light; }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#231F20;background:#fff;font-size:16px;line-height:1.6;}
+a{text-decoration:none;}
+
+/* ── NAV ── */
+nav{background:#014263;padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;}
+.nav-brand{display:flex;align-items:center;gap:12px;}
+.nav-brand .name{color:#fff;font-size:18px;font-weight:900;letter-spacing:-0.3px;}
+.nav-links{display:flex;gap:1.75rem;align-items:center;}
+.nav-links a{color:rgba(255,255,255,0.7);font-size:14px;font-weight:600;}
+.nav-links a:hover{color:#fff;}
+.nav-cta{background:#E59D33;color:#fff!important;padding:8px 20px;border-radius:7px;font-weight:700!important;}
+
+/* ── BUTTONS ── */
+.btn-primary{background:#E59D33;color:#fff;font-size:14px;font-weight:800;padding:13px 32px;border-radius:8px;display:inline-block;}
+.btn-secondary{background:rgba(255,255,255,0.12);color:#fff;font-size:14px;font-weight:700;padding:13px 32px;border-radius:8px;border:1px solid rgba(255,255,255,0.35);display:inline-block;}
+.btn-teal{background:#31ADE3;color:#fff;font-size:14px;font-weight:700;padding:11px 24px;border-radius:8px;display:inline-block;}
+.btn-link{color:#014263;font-size:13px;font-weight:800;border:1px solid #014263;padding:8px 18px;border-radius:7px;display:inline-block;}
+.btn-link-amber{color:#633806;font-size:13px;font-weight:800;border:1px solid #E59D33;padding:8px 18px;border-radius:7px;display:inline-block;}
+.btn-dark-inv{background:#fff;color:#014263;font-size:16px;font-weight:900;padding:16px 48px;border-radius:9px;display:inline-block;}
+
+/* ── HERO ── */
+.hero{background:#014263;padding:4rem 3rem 5rem;text-align:center;}
+.eyebrow{display:inline-block;color:#70C9CC;font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:1rem;}
+.hero h1{color:#fff;font-size:52px;font-weight:900;line-height:1.05;margin-bottom:0.5rem;letter-spacing:-1px;}
+.hero-tagline{color:#70C9CC;font-size:18px;font-weight:600;margin-bottom:0;line-height:1.4;}
+.hero-desc{color:rgba(255,255,255,0.65);font-size:15px;line-height:1.75;margin:0 auto;}
+
+/* ── SECTIONS ── */
+section{padding:5rem 3rem;}
+.sec-warm{background:#F8F5F0;}
+.sec-teal{background:#EEF8F8;}
+.sec-dark{background:#014263;}
+.sec-amber{background:#E59D33;}
+.inner{max-width:840px;margin:0 auto;}
+
+.sec-label{font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;text-align:center;margin-bottom:0.6rem;}
+.sl-blue{color:#31ADE3;}
+.sl-teal{color:#0F7B72;}
+.sl-amber{color:#8A5A0A;}
+.sl-lt{color:rgba(255,255,255,0.65);}
+
+h2{font-size:32px;font-weight:900;text-align:center;color:#231F20;margin-bottom:1rem;line-height:1.15;}
+h2.on-dark{color:#fff;}
+h2.on-amber{color:#3D2200;}
+.sec-sub{text-align:center;color:#666;font-size:16px;line-height:1.75;max-width:560px;margin:0 auto 3rem;}
+.sec-sub.lt{color:rgba(255,255,255,0.8);}
+.sec-sub.on-amber{color:rgba(61,34,0,0.75);}
+
+/* ── WHY CARDS ── */
+.why-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;max-width:820px;margin:0 auto;}
+.why-card{border-radius:14px;padding:2rem 1.75rem;border:1px solid transparent;}
+.wc-b{background:#EAF4FB;border-color:rgba(49,173,227,0.2);}
+.wc-a{background:#FDF3E3;border-color:rgba(229,157,51,0.2);}
+.wc-t{background:#E6F6F5;border-color:rgba(112,201,204,0.3);}
+.why-card h3{font-size:18px;font-weight:900;margin-bottom:0.5rem;}
+.wh-b{color:#014263;}
+.wh-a{color:#633806;}
+.wh-t{color:#0F6E56;}
+.why-card p{font-size:14px;color:#555;line-height:1.65;}
+
+/* ── SIX ACTIVITIES ── */
+.six-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;max-width:860px;margin:0 auto;}
+.act-blocks{display:flex;flex-direction:column;gap:1rem;}
+.act-block{border-radius:12px;padding:1.5rem;}
+.ab-b{background:#EAF4FB;border-left:4px solid #31ADE3;}
+.ab-a{background:#FDF3E3;border-left:4px solid #E59D33;}
+.ab-t{background:#E6F6F5;border-left:4px solid #70C9CC;}
+.act-block h3{font-size:15px;font-weight:900;margin-bottom:0.75rem;}
+.ah-b{color:#014263;}
+.ah-a{color:#633806;}
+.ah-t{color:#0F6E56;}
+.act-item{font-size:13px;color:#444;display:flex;align-items:center;gap:8px;margin-bottom:5px;}
+.act-item::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.ai-b::before{background:#31ADE3;}
+.ai-a::before{background:#E59D33;}
+.ai-t::before{background:#70C9CC;}
+
+@keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+.w-spin{animation:spin 22s linear infinite;transform-box:fill-box;transform-origin:center;}
+
+/* ── LEARN CARDS (2×2 grid) ── */
+.learn-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:760px;margin:0 auto;}
+.learn-card{background:#fff;border:1px solid #E5E1DA;border-radius:14px;padding:2rem;}
+.learn-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;}
+.li-b{background:#E6F1FB;}
+.li-a{background:#FAEEDA;}
+.li-t{background:#E6F6F5;}
+.li-k{background:#EEE6F8;}
+.learn-card h3{font-size:17px;font-weight:900;color:#231F20;margin-bottom:0.5rem;}
+.learn-card p{font-size:14px;color:#555;line-height:1.65;margin-bottom:0.75rem;}
+.learn-bullets{list-style:none;padding:0;margin:0 0 1.25rem;}
+.learn-bullets li{font-size:13px;color:#555;display:flex;align-items:center;gap:7px;margin-bottom:4px;}
+.learn-bullets li::before{content:'';width:5px;height:5px;border-radius:50%;background:#8B5CF6;flex-shrink:0;}
+
+/* ── BT SERVANT CHAT ── */
+.bt-wrap{background:#014263;border-radius:16px;padding:2.5rem;max-width:620px;margin:0 auto;}
+.cb-u{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1rem;}
+.cb-lbl{color:rgba(255,255,255,0.4);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:0.4rem;}
+.cb-u p{color:#fff;font-size:15px;}
+.cb-b{background:rgba(112,201,204,0.12);border:1px solid rgba(112,201,204,0.25);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;}
+.cb-b p{color:rgba(255,255,255,0.85);font-size:15px;line-height:1.7;}
+.tag{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;display:inline-block;margin:3px;}
+
+/* ── CALLOUTS ── */
+.callout-group{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.25rem;}
+.callout-group:last-child{margin-bottom:0;}
+.callout-label{font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:0.35rem;padding-left:14px;}
+.cl-b{color:#014263;}
+.cl-a{color:#633806;}
+.cl-t{color:#0F6E56;}
+.callout-item{position:relative;border-radius:7px;padding:7px 14px 7px 18px;font-size:13px;font-weight:700;line-height:1.3;}
+.callout-item::before{content:'';position:absolute;left:-7px;top:50%;transform:translateY(-50%);border:6px solid transparent;}
+.ci-b{background:#EAF4FB;color:#014263;}
+.ci-b::before{border-right-color:#31ADE3;}
+.ci-a{background:#FDF3E3;color:#633806;}
+.ci-a::before{border-right-color:#E59D33;}
+.ci-t{background:#E6F6F5;color:#0F6E56;}
+.ci-t::before{border-right-color:#70C9CC;}
+
+/* ── FOOTER ── */
+footer{background:#1A1714;padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.08);}
+.f-left{display:flex;flex-direction:column;gap:0.5rem;}
+.f-brand-row{display:flex;align-items:center;gap:10px;}
+.f-brand-name{color:#fff;font-size:16px;font-weight:900;letter-spacing:-0.2px;}
+.f-brand-tagline{color:rgba(255,255,255,0.45);font-size:13px;}
+.f-brand-tagline a{color:#31ADE3;text-decoration:none;font-weight:600;}
+.f-brand-tagline a:hover{text-decoration:underline;}
+.f-license{color:rgba(255,255,255,0.3);font-size:12px;margin-top:0.25rem;}
+.f-right{display:flex;flex-direction:column;align-items:flex-end;gap:0.75rem;}
+.f-links{display:flex;gap:1.5rem;}
+.f-links a{color:rgba(255,255,255,0.4);font-size:13px;font-weight:500;}
+.f-links a:hover{color:#fff;}
+
+/* ── FRAMEWORK DIAGRAM ── */
+.fw-wrap{margin-top:2.5rem;}
+.fw-top-row{display:flex;justify-content:center;gap:1rem;margin-bottom:0.75rem;}
+.fw-mid-row{display:flex;align-items:center;gap:1.25rem;}
+.fw-side-left{display:flex;flex-direction:column;gap:0.75rem;flex:1;align-items:flex-end;}
+.fw-side-right{display:flex;flex-direction:column;gap:0.75rem;flex:1;align-items:flex-start;}
+.fw-wheel-wrap{flex:0 0 auto;width:420px;position:relative;z-index:1;}
+.fw-wrap{position:relative;}
+#fw-connectors{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+#fw-connectors g{opacity:0;transition:opacity 0.3s ease;}
+#fw-connectors g.fw-active{opacity:1;}
+.fw-chip{background:#fff;border-radius:13px;padding:14px 16px;display:flex;align-items:flex-start;gap:12px;max-width:260px;width:100%;border:1.5px solid;box-shadow:0 3px 12px rgba(0,0,0,0.06);transition:transform 0.3s ease,box-shadow 0.2s ease,opacity 0.3s ease;cursor:pointer;position:relative;z-index:1;opacity:0;transform:translateY(12px);pointer-events:none;}
+.fw-chip.fw-active{opacity:1;transform:none;pointer-events:auto;}
+.fw-chip.fw-active:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,0.13);}
+.fw-chip .ci{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.fw-chip .ct{font-size:13.5px;font-weight:800;margin-bottom:2px;line-height:1.25;}
+.fw-chip .cd{font-size:12px;color:#6b6b6b;line-height:1.45;font-weight:500;}
+.fc-b{border-color:rgba(49,173,227,0.4);}
+.fc-b .ci{background:#EAF4FB;}
+.fc-b .ct{color:#0E7DB8;}
+.fc-a{border-color:rgba(229,157,51,0.45);}
+.fc-a .ci{background:#FDF3E3;}
+.fc-a .ct{color:#C97D10;}
+.fc-t{border-color:rgba(112,201,204,0.5);}
+.fc-t .ci{background:#E6F6F5;}
+.fc-t .ct{color:#0F8B80;}
+/* ── INTERACTIVE WHEELS ── */
+.wheel-seg{cursor:pointer;transition:opacity 0.25s ease,filter 0.25s ease;}
+.wheel-seg:hover{filter:brightness(1.06);}
+.seg-txt{pointer-events:none;}
+
+/* ── HERO WHEEL: glow phases on hover ── */
+#hero-wheel .wheel-seg{transition:filter 0.3s ease;cursor:default;}
+#hero-wheel .wheel-seg[data-seg="0"]:hover{filter:drop-shadow(0 0 18px rgba(112,201,204,0.85)) brightness(1.06);}
+#hero-wheel .wheel-seg[data-seg="1"]:hover{filter:drop-shadow(0 0 18px rgba(229,157,51,0.85)) brightness(1.06);}
+#hero-wheel .wheel-seg[data-seg="2"]:hover{filter:drop-shadow(0 0 18px rgba(49,173,227,0.85)) brightness(1.06);}
+
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav{padding:0 1.25rem;}
+  .nav-links{gap:0.75rem;}
+  .hero{padding:2.5rem 1.5rem 3.5rem;}
+  .hero h1{font-size:34px;letter-spacing:-0.5px;}
+  .hero-desc{font-size:14px;}
+  section{padding:3.5rem 1.5rem;}
+  h2{font-size:27px;}
+  .sec-sub{font-size:15px;}
+  .why-cards{grid-template-columns:1fr;gap:1rem;}
+  .six-grid{grid-template-columns:1fr;}
+  .learn-grid{grid-template-columns:1fr;gap:1.25rem;}
+  .fw-mid-row{flex-wrap:wrap;justify-content:center;}
+  .fw-side-left,.fw-side-right{flex-direction:row;flex-wrap:wrap;gap:0.5rem;width:100%;align-items:center;justify-content:center;}
+  .fw-wheel-wrap{width:100%;order:-1;}
+  .fw-top-row{flex-wrap:wrap;}
+  .fw-chip{max-width:100%;display:none;}
+  .fw-chip.fw-active{display:flex;}
+  #fw-connectors{display:none;}
+  .sec-amber>div{padding:3rem 1.5rem!important;}
+  .go-deeper-grid{grid-template-columns:1fr!important;}
+  .bt-mockup-wrap{flex-direction:column;align-items:center!important;}
+  .bt-mockup-phone{width:220px!important;}
+  .bt-mockup-browser{min-width:unset!important;width:100%!important;max-width:100%!important;}
+  footer{padding:2rem 1.5rem;}
+  .f-right{align-items:flex-start;}
+}
+
+@media (max-width: 480px) {
+  nav{padding:0 1rem;}
+  .nav-links a:not(.nav-cta){display:none;}
+  .hero{padding:2rem 1.25rem 3rem;}
+  .hero h1{font-size:26px;}
+  .hero-desc{font-size:13px;}
+  section{padding:2.5rem 1.25rem;}
+  h2{font-size:22px;}
+  .sec-sub{font-size:14px;}
+  .btn-dark-inv{padding:13px 28px!important;font-size:14px!important;}
+  .inner{padding:0;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <svg viewBox="0 0 100 110" width="38" height="42" xmlns="http://www.w3.org/2000/svg" aria-label="Foundations BT logo" style="flex-shrink:0;">
+      <polygon points="50,20 81.2,38 81.2,74 50,92 18.8,74 18.8,38" fill="#111" stroke="#111" stroke-width="14" stroke-linejoin="round"/>
+      <polygon points="50,20 81.2,38 50,56 18.8,38" fill="#70C9CC"/>
+      <polygon points="81.2,38 81.2,74 50,92 50,56" fill="#E59D33"/>
+      <polygon points="18.8,38 50,56 50,92 18.8,74" fill="#31ADE3"/>
+      <line x1="50" y1="56" x2="81.2" y2="38" stroke="#111" stroke-width="4.5"/>
+      <line x1="50" y1="56" x2="18.8" y2="38" stroke="#111" stroke-width="4.5"/>
+      <line x1="50" y1="56" x2="50" y2="92" stroke="#111" stroke-width="4.5"/>
+    </svg>
+    <span class="name">Foundations BT</span>
+  </div>
+  <div class="nav-links">
+    <a href="#explore-the-framework">The Framework</a>
+    <a href="https://btservant.ai" target="_blank" rel="noopener">BT Servant</a>
+    <a href="#learn" class="nav-cta">Start Learning</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Bible Translation Begins With <span style="color:#31ADE3;">Understanding</span></h1>
+  <svg id="hero-wheel" viewBox="0 0 500 500" style="width:100%;max-width:580px;display:block;margin:2rem auto 1.5rem;"></svg>
+  <p class="hero-desc">A simple framework for understanding Bible translation.</p>
+  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
+    <a href="#learn" class="btn-primary">Start Learning</a>
+    <a href="#explore-the-framework" class="btn-secondary">Explore the Framework</a>
+  </div>
+</section>
+
+<!-- WHY THE WHEEL MATTERS -->
+<section>
+  <div class="inner">
+    <h2 style="margin-bottom:2.5rem;">Every faithful Bible translation process is built on three foundational principles.</h2>
+    <div class="why-cards">
+      <div class="why-card wc-t">
+        <h3 class="wh-t">Understand</h3>
+        <p>Learn the meaning of Scripture — what the text meant to its original audience.</p>
+      </div>
+      <div class="why-card wc-a">
+        <h3 class="wh-a">Translate</h3>
+        <p>Communicate the meaning in another language — clearly, naturally, and faithfully.</p>
+      </div>
+      <div class="why-card wc-b">
+        <h3 class="wh-b">Check</h3>
+        <p>Confirm faithfulness and approve language use so the community trusts the translation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIX ACTIVITIES -->
+<section id="explore-the-framework" class="sec-warm">
+  <div class="inner" style="max-width:1000px;">
+    <h2>The Six Activities of the Framework</h2>
+    <div class="fw-wrap" style="margin-top:2.5rem;">
+      <svg id="fw-connectors" aria-hidden="true"></svg>
+      <!-- Understand: top cards -->
+      <div class="fw-top-row" style="gap:2.5rem;">
+        <div class="fw-chip fc-t" data-seg="0">
+          <div class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F8B80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <div><div class="ct">Share Scripture</div><div class="cd">Make the text available in the heart language.</div></div>
+        </div>
+        <div class="fw-chip fc-t" data-seg="0">
+          <div class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F8B80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div><div class="ct">Learn Meaning</div><div class="cd">Discover what the text means together.</div></div>
+        </div>
+      </div>
+      <div class="fw-mid-row" style="margin-top:2rem;gap:2.75rem;">
+        <!-- Check: left cards -->
+        <div class="fw-side-left" style="gap:1.25rem;">
+          <div class="fw-chip fc-b" data-seg="2">
+            <div class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E7DB8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <div><div class="ct">Approve Language Use</div><div class="cd">Ensure the language is natural and clear.</div></div>
+          </div>
+          <div class="fw-chip fc-b" data-seg="2">
+            <div class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E7DB8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+            <div><div class="ct">Confirm Faithfulness</div><div class="cd">Verify it faithfully reflects the original meaning.</div></div>
+          </div>
+        </div>
+        <!-- Wheel -->
+        <div class="fw-wheel-wrap">
+          <svg id="six-wheel" viewBox="0 0 500 500" style="width:100%;max-width:420px;display:block;margin:0 auto;"></svg>
+        </div>
+        <!-- Translate: right cards -->
+        <div class="fw-side-right" style="gap:1.25rem;">
+          <div class="fw-chip fc-a" data-seg="1">
+            <div class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C97D10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg></div>
+            <div><div class="ct">Communicate Meaning</div><div class="cd">Share the translated message with others.</div></div>
+          </div>
+          <div class="fw-chip fc-a" data-seg="1">
+            <div class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C97D10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div><div class="ct">Record Translation</div><div class="cd">Document and preserve the translation.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEARN -->
+<section id="learn" class="sec-teal">
+  <div class="inner">
+    <h2>Four Ways to Get Started</h2>
+    <div class="learn-grid">
+
+      <div class="learn-card" style="border-color:#D8CCF0;">
+        <div class="learn-icon li-k">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5B21B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>The Tano Story Series</h3>
+        <p style="margin-bottom:1rem;color:#444;">Discover the foundations of Bible translation through <em>The Tano Story Series: When the Church Translates</em> — seven engaging story-based videos, each approximately five minutes long and available in 12 languages.</p>
+        <a href="https://www.youtube.com/@FoundationsBT/playlists" target="_blank" rel="noopener" style="color:#5B21B6;font-size:13px;font-weight:800;border:1px solid #8B5CF6;padding:8px 18px;border-radius:7px;display:inline-block;">Watch the Series</a>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-icon li-a">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#633806" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>BT Servant</h3>
+        <p>Learn with BT Servant through guided conversation. BT Servant helps you understand and apply the principles of faithful Bible translation.</p>
+        <a href="https://www.btservant.ai/" target="_blank" rel="noopener" class="btn-link">Try BT Servant</a>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-icon li-t">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <h3>Open Bible Stories</h3>
+        <p>Get started with 50 Bible stories from Creation to Revelation. A simple yet powerful resource for discipleship and evangelism.</p>
+        <a href="https://www.openbiblestories.org/" target="_blank" rel="noopener" class="btn-link">Explore the Stories</a>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-icon li-b">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#014263" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        <h3>Foundations BT Video Course</h3>
+        <p>A seven-session guided learning journey through short sessions, reflection questions, and the Tano Story Series. You'll discover the principles that guide faithful Bible translation.</p>
+        <a href="https://youtube.com/playlist?list=PLJRSsc2IDl00&si=DEKINUfMi14C50bf" target="_blank" rel="noopener" class="btn-link">Watch the Course</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BT SERVANT -->
+<section>
+  <div class="inner">
+    <div style="text-align:center;font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:#999;margin-bottom:0.5rem;">Your Translation Coach</div>
+    <h2>BT Servant</h2>
+    <p class="sec-sub">Learn Bible translation through guided conversation. BT Servant helps you understand, translate, and check with trusted guidance, right when you need it. Just Ask.<br><br>Try BT Servant on WhatsApp, Telegram, Signal, or the web.</p>
+    <!-- BT Servant dual mockup: phone + browser -->
+    <div class="bt-mockup-wrap" style="display:flex;gap:2rem;align-items:flex-end;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;">
+
+      <!-- PHONE MOCKUP -->
+      <div class="bt-mockup-phone" style="flex-shrink:0;width:200px;">
+        <div style="background:#111;border-radius:32px;padding:10px;box-shadow:0 24px 60px rgba(0,0,0,0.35);">
+          <!-- notch -->
+          <div style="background:#000;border-radius:14px;padding:8px 10px 0;overflow:hidden;">
+            <div style="background:#111;border-radius:16px 16px 0 0;height:20px;display:flex;align-items:center;justify-content:space-between;padding:0 8px;">
+              <span style="color:#fff;font-size:9px;font-weight:700;">5:36</span>
+              <div style="display:flex;gap:3px;align-items:center;">
+                <svg width="10" height="8" viewBox="0 0 10 8"><rect x="0" y="4" width="2" height="4" fill="#fff" rx="0.5"/><rect x="3" y="2.5" width="2" height="5.5" fill="#fff" rx="0.5"/><rect x="6" y="1" width="2" height="7" fill="#fff" rx="0.5"/></svg>
+                <svg width="10" height="8" viewBox="0 0 12 10"><path d="M6 1.5 C3 1.5 1 3.5 1 5.5" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M6 1.5 C9 1.5 11 3.5 11 5.5" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round"/><circle cx="6" cy="8" r="1.2" fill="#fff"/></svg>
+                <svg width="18" height="8" viewBox="0 0 18 8"><rect x="0" y="1" width="15" height="6" rx="2" stroke="#fff" stroke-width="1" fill="none"/><rect x="1" y="2" width="10" height="4" rx="1" fill="#fff"/><rect x="15.5" y="2.5" width="2" height="3" rx="1" fill="#fff"/></svg>
+              </div>
+            </div>
+            <!-- screen -->
+            <div style="background:#fff;border-radius:0 0 22px 22px;overflow:hidden;">
+              <!-- chat header -->
+              <div style="background:#f7f7f7;padding:8px 10px;display:flex;align-items:center;gap:7px;border-bottom:1px solid #eee;">
+                <span style="color:#31ADE3;font-size:11px;">‹</span>
+                <div style="background:#E59D33;width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="11" height="13" viewBox="0 0 12 14" fill="none"><path d="M2 1h8a1 1 0 0 1 1 1v10l-4-2-4 2V2a1 1 0 0 1 1-1Z" fill="#fff"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:10px;font-weight:800;color:#111;line-height:1.2;">BT Servant</div>
+                  <div style="font-size:8px;color:#888;">unfoldingWord BT Servant</div>
+                </div>
+              </div>
+              <!-- messages -->
+              <div style="background:#ece5dd;padding:8px;min-height:240px;">
+                <div style="text-align:center;margin-bottom:8px;"><span style="background:rgba(255,255,255,0.6);font-size:8px;color:#666;padding:2px 8px;border-radius:8px;">Today</span></div>
+                <div style="background:#fff;border-radius:8px 8px 8px 0;padding:8px;font-size:8px;color:#111;line-height:1.5;max-width:90%;">
+                  I'm here to assist with general Bible translation tasks. Here's what I can do:
+                  <ul style="padding-left:12px;margin:5px 0;list-style:disc;">
+                    <li style="margin-bottom:2px;"><strong>Summarize a passage:</strong> Books, chapters, or verses.</li>
+                    <li style="margin-bottom:2px;"><strong>FIA process guidance:</strong> Explain or apply steps.</li>
+                    <li style="margin-bottom:2px;"><strong>Translation helps:</strong> Typical challenges.</li>
+                    <li style="margin-bottom:2px;"><strong>Keywords:</strong> Key terms in a passage.</li>
+                    <li><strong>Set response language:</strong> Choose your language.</li>
+                  </ul>
+                  Which of these would you like me to do?
+                  <div style="text-align:right;font-size:7px;color:#aaa;margin-top:4px;">5:36 PM</div>
+                </div>
+              </div>
+              <!-- input bar -->
+              <div style="background:#f0f0f0;padding:5px 8px;display:flex;align-items:center;gap:6px;border-top:1px solid #ddd;">
+                <span style="color:#888;font-size:14px;line-height:1;">+</span>
+                <div style="flex:1;background:#fff;border-radius:16px;padding:4px 8px;font-size:8px;color:#bbb;">Message</div>
+                <div style="width:18px;height:18px;border-radius:50%;background:#E59D33;display:flex;align-items:center;justify-content:center;">
+                  <svg width="8" height="8" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="#E59D33" stroke="#fff" stroke-width="1"/><path d="M3.5 5h3M5 3.5v3" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BROWSER MOCKUP -->
+      <div class="bt-mockup-browser" style="flex:1;min-width:320px;max-width:520px;background:#f8f7f5;border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,0.18);overflow:hidden;border:1px solid #e8e3dc;">
+        <!-- chrome bar -->
+        <div style="background:#f0ede8;padding:10px 14px;display:flex;align-items:center;gap:6px;border-bottom:1px solid #e2ddd6;">
+          <span style="width:11px;height:11px;border-radius:50%;background:#FF5F57;display:inline-block;"></span>
+          <span style="width:11px;height:11px;border-radius:50%;background:#FFBD2E;display:inline-block;"></span>
+          <span style="width:11px;height:11px;border-radius:50%;background:#28CA41;display:inline-block;"></span>
+        </div>
+        <!-- app header -->
+        <div style="background:#f8f7f5;padding:12px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #e8e3dc;">
+          <div style="background:#E59D33;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="16" height="18" viewBox="0 0 12 14" fill="none"><path d="M2 1h8a1 1 0 0 1 1 1v10l-4-2-4 2V2a1 1 0 0 1 1-1Z" fill="#fff"/></svg>
+          </div>
+          <span style="font-size:16px;font-weight:800;color:#1a1a1a;flex:1;">BTS Web</span>
+          <div style="width:32px;height:32px;border-radius:50%;background:#8B6E4E;display:flex;align-items:center;justify-content:center;">
+            <span style="color:#fff;font-size:14px;font-weight:800;">B</span>
+          </div>
+        </div>
+        <!-- messages area -->
+        <div style="padding:16px;min-height:240px;display:flex;flex-direction:column;gap:12px;">
+          <!-- user message -->
+          <div style="display:flex;justify-content:flex-end;">
+            <div style="background:#e8e0d5;border-radius:18px 18px 4px 18px;padding:10px 16px;font-size:14px;color:#1a1a1a;max-width:75%;">Help me translate John 3:16</div>
+          </div>
+          <!-- bot response -->
+          <div style="font-size:13px;color:#2a2a2a;line-height:1.7;max-width:90%;">
+            <p style="margin-bottom:8px;">Welcome! I'm <strong>BT Servant</strong>, your Bible translation assistant. 🙂</p>
+            <p style="margin-bottom:8px;">I'd love to help you translate <strong>John 3:16</strong>!</p>
+            <p style="margin-bottom:8px;">Before we dive into translation, I need to walk you through the <strong>Understand</strong> phase first. This is an important part of the translation process — you need to deeply understand a passage before you can faithfully translate it.</p>
+            <p style="margin-bottom:6px;">The process I use is called <strong>UTC</strong>:</p>
+            <ul style="padding-left:20px;list-style:disc;color:#2a2a2a;">
+              <li>Understand the passage</li>
+              <li>Translate the passage</li>
+              <li>Check the translation</li>
+            </ul>
+          </div>
+        </div>
+        <!-- input bar -->
+        <div style="padding:10px 14px;border-top:1px solid #e8e3dc;display:flex;align-items:center;gap:10px;">
+          <div style="flex:1;border:1px solid #d8d3cc;border-radius:24px;padding:9px 16px;font-size:13px;color:#aaa;background:#fff;">How can I help you today?</div>
+          <div style="width:36px;height:36px;border-radius:50%;background:#E59D33;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+          </div>
+        </div>
+        <!-- version footer -->
+        <div style="text-align:center;padding:8px;font-size:11px;color:#aaa;">BT Servant Web v1.6.3</div>
+      </div>
+
+    </div>
+    <div style="text-align:center;">
+      <a href="https://www.btservant.ai/" target="_blank" rel="noopener" class="btn-teal" style="font-size:15px;padding:14px 40px;">Try BT Servant</a>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="sec-amber">
+  <div style="text-align:center;padding:5rem 3rem;">
+    <div class="sec-label sl-lt" style="letter-spacing:2.5px;">Join the Global Church</div>
+    <h2 class="on-amber" style="margin-bottom:2rem;">Across the world, churches are working together to<br>understand, translate and check to share God's Word.</h2>
+    <a href="#learn" class="btn-dark-inv">Start Learning</a>
+  </div>
+</div>
+
+<!-- ADDITIONAL RESOURCES -->
+<section style="padding:3.5rem 3rem;background:#F8F5F0;border-top:1px solid #EDE8E1;">
+  <div style="max-width:680px;margin:0 auto;text-align:center;">
+    <p style="font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:0.75rem;">Want to go deeper?</p>
+    <p style="color:#555;font-size:15px;line-height:1.75;margin-bottom:2rem;">Foundations BT is just the beginning. If you'd like to explore further, these two resources go deeper into Bible translation principles and practice.</p>
+    <div class="go-deeper-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;max-width:640px;margin:0 auto;">
+      <a href="https://translationcore.com/" target="_blank" rel="noopener" style="background:#fff;border:1px solid #DDD8D0;border-radius:12px;padding:1.5rem 1.25rem;display:block;text-decoration:none;text-align:left;">
+        <div style="font-size:15px;font-weight:800;color:#31ADE3;text-decoration:underline;text-underline-offset:3px;margin-bottom:0.4rem;">translationCore</div>
+        <div style="font-size:13px;color:#666;line-height:1.6;">Tools and resources to support and strengthen Bible translation quality.</div>
+      </a>
+      <a href="https://churchbased.bible/" target="_blank" rel="noopener" style="background:#fff;border:1px solid #DDD8D0;border-radius:12px;padding:1.5rem 1.25rem;display:block;text-decoration:none;text-align:left;">
+        <div style="font-size:15px;font-weight:800;color:#31ADE3;text-decoration:underline;text-underline-offset:3px;margin-bottom:0.4rem;">Church-Based Bible Translation</div>
+        <div style="font-size:13px;color:#666;line-height:1.6;">Learn more about the church-based model for Bible translation and how local churches are leading the way.</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-left">
+    <div class="f-brand-row">
+      <svg viewBox="0 0 100 110" width="32" height="35" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+        <polygon points="50,20 81.2,38 81.2,74 50,92 18.8,74 18.8,38" fill="#222" stroke="#222" stroke-width="14" stroke-linejoin="round"/>
+        <polygon points="50,20 81.2,38 50,56 18.8,38" fill="#70C9CC"/>
+        <polygon points="81.2,38 81.2,74 50,92 50,56" fill="#E59D33"/>
+        <polygon points="18.8,38 50,56 50,92 18.8,74" fill="#31ADE3"/>
+        <line x1="50" y1="56" x2="81.2" y2="38" stroke="#222" stroke-width="4.5"/>
+        <line x1="50" y1="56" x2="18.8" y2="38" stroke="#222" stroke-width="4.5"/>
+        <line x1="50" y1="56" x2="50" y2="92" stroke="#222" stroke-width="4.5"/>
+      </svg>
+      <span class="f-brand-name">Foundations BT</span>
+    </div>
+    <div class="f-brand-tagline">An initiative of <a href="https://unfoldingword.org" target="_blank" rel="noopener">unfoldingWord</a></div>
+    <div class="f-license">All resources are freely available under the CC BY-SA license.</div>
+  </div>
+  <div class="f-right">
+    <div class="f-links">
+      <a href="https://unfoldingword.org/contact/" target="_blank" rel="noopener">Contact</a>
+      <a href="https://unfoldingword.org" target="_blank" rel="noopener">unfoldingWord.org</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  function p2c(cx,cy,r,a){var rad=(a-90)*Math.PI/180;return{x:cx+r*Math.cos(rad),y:cy+r*Math.sin(rad)};}
+  function arc(cx,cy,ro,ri,s,e){
+    var p1=p2c(cx,cy,ro,s),p2=p2c(cx,cy,ro,e),p3=p2c(cx,cy,ri,e),p4=p2c(cx,cy,ri,s);
+    var span=((e-s)+360)%360,laf=span>180?1:0;
+    return'M'+p1.x.toFixed(2)+','+p1.y.toFixed(2)+' A'+ro+','+ro+' 0 '+laf+' 1 '+p2.x.toFixed(2)+','+p2.y.toFixed(2)+' L'+p3.x.toFixed(2)+','+p3.y.toFixed(2)+' A'+ri+','+ri+' 0 '+laf+' 0 '+p4.x.toFixed(2)+','+p4.y.toFixed(2)+'Z';
+  }
+
+  function buildWheel(id, opts){
+    var el=document.getElementById(id);
+    if(!el) return;
+    var CX=250,CY=252,RO=192,RI=95,RM=(RO+RI)/2;
+    var segs=[
+      {label:'Understand',fill:'#70C9CC',s:-55,e:65, la:0,  na:48},
+      {label:'Translate', fill:'#E59D33',s:65, e:185,la:125,na:168},
+      {label:'Check',     fill:'#31ADE3',s:185,e:305,la:245,na:288}
+    ];
+    function f(p){return p.x.toFixed(1)+','+p.y.toFixed(1);}
+    function segPath(s,e){
+      var hb=11,ht=15,nd=13,hw=18;
+      var eB=e-hb, laf=(eB-s)>180?1:0;
+      var p1=p2c(CX,CY,RO,s),  p2=p2c(CX,CY,RO,eB);
+      var h1=p2c(CX,CY,RO+hw,eB), tip=p2c(CX,CY,RM,e+ht), h2=p2c(CX,CY,RI-hw,eB);
+      var p3=p2c(CX,CY,RI,eB), p4=p2c(CX,CY,RI,s), nt=p2c(CX,CY,RM,s+nd);
+      return 'M'+f(p1)+' A'+RO+','+RO+' 0 '+laf+' 1 '+f(p2)+' L'+f(h1)+' L'+f(tip)+' L'+f(h2)+' L'+f(p3)+' A'+RI+','+RI+' 0 '+laf+' 0 '+f(p4)+' L'+f(nt)+' Z';
+    }
+    var h='<circle cx="'+CX+'" cy="'+CY+'" r="'+(RI-4)+'" fill="#fff"/>';
+    segs.forEach(function(seg,i){
+      var extra=(opts&&opts.interactive)?' class="wheel-seg" data-seg="'+i+'"':'';
+      h+='<path d="'+segPath(seg.s,seg.e)+'" fill="'+seg.fill+'" stroke="#fff" stroke-width="7" stroke-linejoin="round" style="paint-order:stroke;"'+extra+'/>';
+    });
+    segs.forEach(function(seg,i){
+      var lp=p2c(CX,CY,RM,seg.la),np=p2c(CX,CY,RM,seg.na);
+      h+='<g class="seg-txt" style="pointer-events:none;">';
+      h+='<text x="'+lp.x.toFixed(1)+'" y="'+lp.y.toFixed(1)+'" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="24" font-weight="800" font-family="\'Nunito Sans\',sans-serif">'+seg.label+'</text>';
+      h+='<text x="'+np.x.toFixed(1)+'" y="'+np.y.toFixed(1)+'" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="50" font-weight="300" font-family="\'Nunito Sans\',sans-serif">'+(i+1)+'</text>';
+      h+='</g>';
+    });
+    // center cube
+    h+='<g stroke="#ECECEC" stroke-width="8" stroke-linejoin="round" style="pointer-events:none;">';
+    h+='<path d="M250,200 L302,229 L250,258 L198,229 Z" fill="#70C9CC"/>';
+    h+='<path d="M198,229 L250,258 L250,316 L198,287 Z" fill="#31ADE3"/>';
+    h+='<path d="M302,229 L250,258 L250,316 L302,287 Z" fill="#E59D33"/>';
+    h+='</g>';
+    el.innerHTML=h;
+  }
+
+  buildWheel('hero-wheel', {interactive:true});
+  buildWheel('six-wheel',  {interactive:true});
+
+  var SEG_COLORS=['#70C9CC','#E59D33','#31ADE3'];
+
+  var fwWrap=document.querySelector('.fw-wrap');
+  var activeSeg=0; // Understand shown by default
+
+  function applySeg(idx){
+    activeSeg=idx;
+    document.querySelectorAll('#six-wheel .wheel-seg').forEach(function(p,i){
+      p.style.opacity=(i===idx)?'1':'0.5';
+      p.style.filter=(i===idx)?'drop-shadow(0 0 12px '+SEG_COLORS[i]+'AA)':'';
+    });
+    document.querySelectorAll('.fw-chip[data-seg]').forEach(function(c){
+      c.classList.toggle('fw-active',+c.dataset.seg===idx);
+    });
+    document.querySelectorAll('#fw-connectors g[data-seg]').forEach(function(g){
+      g.classList.toggle('fw-active',+g.dataset.seg===idx);
+    });
+  }
+
+  // Roll over (or tap) a phase to explore its activities; last phase stays active
+  document.querySelectorAll('#six-wheel .wheel-seg').forEach(function(p){
+    p.addEventListener('mouseenter',function(){applySeg(+this.dataset.seg);});
+    p.addEventListener('click',function(){applySeg(+this.dataset.seg);});
+  });
+
+  applySeg(0);
+
+  // ── Connector lines: cards → wheel ──
+  var overlay=document.getElementById('fw-connectors');
+  function drawConnectors(){
+    if(!overlay)return;
+    if(window.innerWidth<=768){overlay.innerHTML='';return;}
+    var wr=fwWrap.getBoundingClientRect();
+    overlay.setAttribute('viewBox','0 0 '+wr.width.toFixed(0)+' '+wr.height.toFixed(0));
+    var ws=document.getElementById('six-wheel').getBoundingClientRect();
+    var scale=ws.width/500;
+    var cx=ws.left-wr.left+250*scale, cy=ws.top-wr.top+252*scale;
+    var R=(192+11)*scale; // just outside the wheel ring
+    var h='';
+    function grp(seg,inner){return'<g data-seg="'+seg+'" stroke="'+SEG_COLORS[seg]+'" fill="'+SEG_COLORS[seg]+'" stroke-width="2" opacity="0.85">'+inner+'</g>';}
+    function cardsFor(seg){return[].slice.call(document.querySelectorAll('.fw-chip[data-seg="'+seg+'"]'));}
+
+    // Understand (top): down from each card, merge, drop to wheel top
+    var top=cardsFor(0).map(function(c){var r=c.getBoundingClientRect();return{x:r.left-wr.left+r.width/2,y:r.bottom-wr.top};});
+    if(top.length===2){
+      var wTop=cy-R, brY=top[0].y+(wTop-top[0].y)*0.5, inner='';
+      top.forEach(function(p){inner+='<circle cx="'+p.x+'" cy="'+p.y+'" r="3.5" stroke="none"/><path fill="none" d="M'+p.x+','+p.y+' V'+brY+' H'+cx+'"/>';});
+      inner+='<path fill="none" d="M'+cx+','+brY+' V'+wTop+'"/>';
+      h+=grp(0,inner);
+    }
+    // Sides: horizontal from each card to a bracket, then into the wheel
+    function side(seg,left){
+      var cards=cardsFor(seg).map(function(c){var r=c.getBoundingClientRect();return{x:(left?r.right:r.left)-wr.left,y:r.top-wr.top+r.height/2};});
+      if(cards.length!==2)return;
+      var edgeX=left?cx-R:cx+R;
+      var brX=cards[0].x+(edgeX-cards[0].x)*0.5;
+      var midY=(cards[0].y+cards[1].y)/2;
+      var dy=midY-cy, ex=Math.sqrt(Math.max(R*R-dy*dy,0));
+      var wx=left?cx-ex:cx+ex;
+      var inner='';
+      cards.forEach(function(p){inner+='<circle cx="'+p.x+'" cy="'+p.y+'" r="3.5" stroke="none"/><path fill="none" d="M'+p.x+','+p.y+' H'+brX+'"/>';});
+      inner+='<path fill="none" d="M'+brX+','+cards[0].y+' V'+cards[1].y+'"/>';
+      inner+='<path fill="none" d="M'+brX+','+midY+' H'+wx+'"/>';
+      h+=grp(seg,inner);
+    }
+    side(2,true);   // Check on the left
+    side(1,false);  // Translate on the right
+    overlay.innerHTML=h;
+    applySeg(activeSeg); // re-mark active connector after redraw
+  }
+  window.addEventListener('resize',drawConnectors);
+  window.addEventListener('load',function(){setTimeout(drawConnectors,700);});
+  setTimeout(drawConnectors,750);
+})();
+</script>
+</body>
+</html>
