@@ -140,6 +140,44 @@ footer{background:#1A1714;padding:2.5rem 3rem;display:flex;align-items:center;ju
 .f-links a{color:rgba(255,255,255,0.4);font-size:13px;font-weight:500;}
 .f-links a:hover{color:#fff;}
 
+/* ── FRAMEWORK DIAGRAM ── */
+.fw-wrap{margin-top:2.5rem;}
+.fw-top-row{display:flex;justify-content:center;gap:1rem;margin-bottom:0.75rem;}
+.fw-mid-row{display:flex;align-items:center;gap:1.25rem;}
+.fw-side-left{display:flex;flex-direction:column;gap:0.75rem;flex:1;align-items:flex-end;}
+.fw-side-right{display:flex;flex-direction:column;gap:0.75rem;flex:1;align-items:flex-start;}
+.fw-wheel-wrap{flex:0 0 auto;width:420px;position:relative;z-index:1;}
+.fw-wrap{position:relative;}
+#fw-connectors{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+#fw-connectors g{opacity:0;transition:opacity 0.3s ease;}
+#fw-connectors g.fw-active{opacity:1;}
+.fw-chip{background:#fff;border-radius:13px;padding:14px 16px;display:flex;align-items:flex-start;gap:12px;max-width:260px;width:100%;border:1.5px solid;box-shadow:0 3px 12px rgba(0,0,0,0.06);transition:transform 0.3s ease,box-shadow 0.2s ease,opacity 0.3s ease;cursor:pointer;position:relative;z-index:1;opacity:0;transform:translateY(12px);pointer-events:none;}
+.fw-chip.fw-active{opacity:1;transform:none;pointer-events:auto;}
+.fw-chip.fw-active:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,0.13);}
+.fw-chip .ci{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.fw-chip .ct{font-size:13.5px;font-weight:800;margin-bottom:2px;line-height:1.25;}
+.fw-chip .cd{font-size:12px;color:#6b6b6b;line-height:1.45;font-weight:500;}
+.fc-b{border-color:rgba(49,173,227,0.4);}
+.fc-b .ci{background:#EAF4FB;}
+.fc-b .ct{color:#0E7DB8;}
+.fc-a{border-color:rgba(229,157,51,0.45);}
+.fc-a .ci{background:#FDF3E3;}
+.fc-a .ct{color:#C97D10;}
+.fc-t{border-color:rgba(112,201,204,0.5);}
+.fc-t .ci{background:#E6F6F5;}
+.fc-t .ct{color:#0F8B80;}
+/* ── INTERACTIVE WHEELS ── */
+.wheel-seg{cursor:pointer;transition:opacity 0.25s ease,filter 0.25s ease;}
+.wheel-seg:hover{filter:brightness(1.06);}
+.seg-txt{pointer-events:none;}
+
+/* ── HERO WHEEL: glow phases on hover ── */
+#hero-wheel .wheel-seg{transition:filter 0.3s ease;cursor:default;}
+#hero-wheel .wheel-seg[data-seg="0"]:hover{filter:drop-shadow(0 0 18px rgba(112,201,204,0.85)) brightness(1.06);}
+#hero-wheel .wheel-seg[data-seg="1"]:hover{filter:drop-shadow(0 0 18px rgba(229,157,51,0.85)) brightness(1.06);}
+#hero-wheel .wheel-seg[data-seg="2"]:hover{filter:drop-shadow(0 0 18px rgba(49,173,227,0.85)) brightness(1.06);}
+
+
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   nav{padding:0 1.25rem;}
@@ -153,6 +191,13 @@ footer{background:#1A1714;padding:2.5rem 3rem;display:flex;align-items:center;ju
   .why-cards{grid-template-columns:1fr;gap:1rem;}
   .six-grid{grid-template-columns:1fr;}
   .learn-grid{grid-template-columns:1fr;gap:1.25rem;}
+  .fw-mid-row{flex-wrap:wrap;justify-content:center;}
+  .fw-side-left,.fw-side-right{flex-direction:row;flex-wrap:wrap;gap:0.5rem;width:100%;align-items:center;justify-content:center;}
+  .fw-wheel-wrap{width:100%;order:-1;}
+  .fw-top-row{flex-wrap:wrap;}
+  .fw-chip{max-width:100%;display:none;}
+  .fw-chip.fw-active{display:flex;}
+  #fw-connectors{display:none;}
   .sec-amber>div{padding:3rem 1.5rem!important;}
   .go-deeper-grid{grid-template-columns:1fr!important;}
   .bt-mockup-wrap{flex-direction:column;align-items:center!important;}
@@ -215,16 +260,16 @@ footer{background:#1A1714;padding:2.5rem 3rem;display:flex;align-items:center;ju
   <div class="inner">
     <h2 style="margin-bottom:2.5rem;">Every faithful Bible translation process is built on three foundational principles.</h2>
     <div class="why-cards">
-      <div class="why-card wc-b">
-        <h3 class="wh-b">Understand</h3>
+      <div class="why-card wc-t">
+        <h3 class="wh-t">Understand</h3>
         <p>Learn the meaning of Scripture — what the text meant to its original audience.</p>
       </div>
       <div class="why-card wc-a">
         <h3 class="wh-a">Translate</h3>
         <p>Communicate the meaning in another language — clearly, naturally, and faithfully.</p>
       </div>
-      <div class="why-card wc-t">
-        <h3 class="wh-t">Check</h3>
+      <div class="why-card wc-b">
+        <h3 class="wh-b">Check</h3>
         <p>Confirm faithfulness and approve language use so the community trusts the translation.</p>
       </div>
     </div>
@@ -233,33 +278,47 @@ footer{background:#1A1714;padding:2.5rem 3rem;display:flex;align-items:center;ju
 
 <!-- SIX ACTIVITIES -->
 <section id="explore-the-framework" class="sec-warm">
-  <div class="inner">
+  <div class="inner" style="max-width:1000px;">
     <h2>The Six Activities of the Framework</h2>
-    <div class="six-grid">
-      <div style="display:flex;justify-content:center;">
-        <svg id="six-wheel" viewBox="0 0 500 500" style="width:100%;max-width:400px;display:block;"></svg>
+    <div class="fw-wrap" style="margin-top:2.5rem;">
+      <svg id="fw-connectors" aria-hidden="true"></svg>
+      <!-- Understand: top cards -->
+      <div class="fw-top-row" style="gap:2.5rem;">
+        <div class="fw-chip fc-t" data-seg="0">
+          <div class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F8B80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <div><div class="ct">Share Scripture</div><div class="cd">Make the text available in the heart language.</div></div>
+        </div>
+        <div class="fw-chip fc-t" data-seg="0">
+          <div class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F8B80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div><div class="ct">Learn Meaning</div><div class="cd">Discover what the text means together.</div></div>
+        </div>
       </div>
-      <div class="act-blocks">
-        <div class="act-block ab-b">
-          <h3 class="ah-b">Understand</h3>
-          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.4rem;">
-            <li style="display:flex;align-items:center;gap:0.5rem;font-size:14px;color:#444;"><span style="width:7px;height:7px;border-radius:50%;background:#31ADE3;flex-shrink:0;"></span>Share Scripture</li>
-            <li style="display:flex;align-items:center;gap:0.5rem;font-size:14px;color:#444;"><span style="width:7px;height:7px;border-radius:50%;background:#31ADE3;flex-shrink:0;"></span>Learn Meaning</li>
-          </ul>
+      <div class="fw-mid-row" style="margin-top:2rem;gap:2.75rem;">
+        <!-- Check: left cards -->
+        <div class="fw-side-left" style="gap:1.25rem;">
+          <div class="fw-chip fc-b" data-seg="2">
+            <div class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E7DB8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <div><div class="ct">Approve Language Use</div><div class="cd">Ensure the language is natural and clear.</div></div>
+          </div>
+          <div class="fw-chip fc-b" data-seg="2">
+            <div class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E7DB8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+            <div><div class="ct">Confirm Faithfulness</div><div class="cd">Verify it faithfully reflects the original meaning.</div></div>
+          </div>
         </div>
-        <div class="act-block ab-a">
-          <h3 class="ah-a">Translate</h3>
-          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.4rem;">
-            <li style="display:flex;align-items:center;gap:0.5rem;font-size:14px;color:#444;"><span style="width:7px;height:7px;border-radius:50%;background:#E59D33;flex-shrink:0;"></span>Communicate Meaning</li>
-            <li style="display:flex;align-items:center;gap:0.5rem;font-size:14px;color:#444;"><span style="width:7px;height:7px;border-radius:50%;background:#E59D33;flex-shrink:0;"></span>Record Translation</li>
-          </ul>
+        <!-- Wheel -->
+        <div class="fw-wheel-wrap">
+          <svg id="six-wheel" viewBox="0 0 500 500" style="width:100%;max-width:420px;display:block;margin:0 auto;"></svg>
         </div>
-        <div class="act-block ab-t">
-          <h3 class="ah-t">Check</h3>
-          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.4rem;">
-            <li style="display:flex;align-items:center;gap:0.5rem;font-size:14px;color:#444;"><span style="width:7px;height:7px;border-radius:50%;background:#70C9CC;flex-shrink:0;"></span>Confirm Faithfulness</li>
-            <li style="display:flex;align-items:center;gap:0.5rem;font-size:14px;color:#444;"><span style="width:7px;height:7px;border-radius:50%;background:#70C9CC;flex-shrink:0;"></span>Approve Language Use</li>
-          </ul>
+        <!-- Translate: right cards -->
+        <div class="fw-side-right" style="gap:1.25rem;">
+          <div class="fw-chip fc-a" data-seg="1">
+            <div class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C97D10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg></div>
+            <div><div class="ct">Communicate Meaning</div><div class="cd">Share the translated message with others.</div></div>
+          </div>
+          <div class="fw-chip fc-a" data-seg="1">
+            <div class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C97D10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div><div class="ct">Record Translation</div><div class="cd">Document and preserve the translation.</div></div>
+          </div>
         </div>
       </div>
     </div>
@@ -496,46 +555,118 @@ footer{background:#1A1714;padding:2.5rem 3rem;display:flex;align-items:center;ju
   function buildWheel(id, opts){
     var el=document.getElementById(id);
     if(!el) return;
-    var CX=250,CY=252,RO=158,RI=90,RM=124;
+    var CX=250,CY=252,RO=192,RI=95,RM=(RO+RI)/2;
     var segs=[
-      {label:'Understand',s:-57,e:57, fill:'#31ADE3',tc:'#fff',mid:0},
-      {label:'Translate', s:63, e:177,fill:'#E59D33',tc:'#fff',mid:120},
-      {label:'Check',     s:183,e:297,fill:'#70C9CC',tc:'#fff',mid:240}
+      {label:'Understand',fill:'#70C9CC',s:-55,e:65, la:0,  na:48},
+      {label:'Translate', fill:'#E59D33',s:65, e:185,la:125,na:168},
+      {label:'Check',     fill:'#31ADE3',s:185,e:305,la:245,na:288}
     ];
-    var arrs=[{at:60,c:'#E59D33',mk:id+'_a1'},{at:180,c:'#70C9CC',mk:id+'_a2'},{at:300,c:'#31ADE3',mk:id+'_a3'}];
-    var cm=[id+'_c1',id+'_c2',id+'_c3'],cc=['#31ADE3','#E59D33','#70C9CC'];
-    var h='<defs>';
-    arrs.forEach(function(a){h+='<marker id="'+a.mk+'" markerWidth="9" markerHeight="7" refX="7" refY="3.5" orient="auto"><path d="M0,0 L9,3.5 L0,7 Z" fill="'+a.c+'"/></marker>';});
-    cm.forEach(function(mid,i){h+='<marker id="'+mid+'" markerWidth="7" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="'+cc[i]+'"/></marker>';});
-    h+='</defs>';
-    h+='<g>';
-    segs.forEach(function(seg){h+='<path d="'+arc(CX,CY,RO,RI,seg.s,seg.e)+'" fill="'+seg.fill+'"/>';});
-    var RA=RO+26;
-    arrs.forEach(function(g){
-      var sp=p2c(CX,CY,RA,g.at-16),ep=p2c(CX,CY,RA,g.at+16);
-      h+='<path d="M'+sp.x.toFixed(1)+','+sp.y.toFixed(1)+' A'+RA+','+RA+' 0 0 1 '+ep.x.toFixed(1)+','+ep.y.toFixed(1)+'" fill="none" stroke="'+g.c+'" stroke-width="3" stroke-linecap="round" marker-end="url(#'+g.mk+')"/>';
-    });
-    h+='</g>';
-    var cFill=opts&&opts.darkCenter?'#013050':'#fff';
-    var cStroke=opts&&opts.darkCenter?'rgba(112,201,204,0.25)':'#E5E1DA';
-    h+='<circle cx="'+CX+'" cy="'+CY+'" r="'+(RI-7)+'" fill="'+cFill+'" stroke="'+cStroke+'" stroke-width="1.5"/>';
-    var cr=28;
-    [[0,100],[120,220],[240,340]].forEach(function(pair,i){
-      var s2=p2c(CX,CY,cr,pair[0]+8),e2=p2c(CX,CY,cr,pair[1]-4);
-      var ca='rgba('+[['49,173,227','229,157,51','112,201,204'][i]]+',.45)';
-      h+='<path d="M'+s2.x.toFixed(1)+','+s2.y.toFixed(1)+' A'+cr+','+cr+' 0 0 1 '+e2.x.toFixed(1)+','+e2.y.toFixed(1)+'" fill="none" stroke="'+ca+'" stroke-width="2" marker-end="url(#'+cm[i]+')"/>';
-    });
-    if(!opts||opts.labels!==false){
-      segs.forEach(function(seg){
-        var lp=p2c(CX,CY,RM,seg.mid);
-        h+='<text x="'+lp.x.toFixed(1)+'" y="'+lp.y.toFixed(1)+'" text-anchor="middle" dominant-baseline="middle" fill="'+seg.tc+'" font-size="13.5" font-weight="900" font-family="sans-serif">'+seg.label+'</text>';
-      });
+    function f(p){return p.x.toFixed(1)+','+p.y.toFixed(1);}
+    function segPath(s,e){
+      var hb=11,ht=15,nd=13,hw=18;
+      var eB=e-hb, laf=(eB-s)>180?1:0;
+      var p1=p2c(CX,CY,RO,s),  p2=p2c(CX,CY,RO,eB);
+      var h1=p2c(CX,CY,RO+hw,eB), tip=p2c(CX,CY,RM,e+ht), h2=p2c(CX,CY,RI-hw,eB);
+      var p3=p2c(CX,CY,RI,eB), p4=p2c(CX,CY,RI,s), nt=p2c(CX,CY,RM,s+nd);
+      return 'M'+f(p1)+' A'+RO+','+RO+' 0 '+laf+' 1 '+f(p2)+' L'+f(h1)+' L'+f(tip)+' L'+f(h2)+' L'+f(p3)+' A'+RI+','+RI+' 0 '+laf+' 0 '+f(p4)+' L'+f(nt)+' Z';
     }
+    var h='<circle cx="'+CX+'" cy="'+CY+'" r="'+(RI-4)+'" fill="#fff"/>';
+    segs.forEach(function(seg,i){
+      var extra=(opts&&opts.interactive)?' class="wheel-seg" data-seg="'+i+'"':'';
+      h+='<path d="'+segPath(seg.s,seg.e)+'" fill="'+seg.fill+'" stroke="#fff" stroke-width="7" stroke-linejoin="round" style="paint-order:stroke;"'+extra+'/>';
+    });
+    segs.forEach(function(seg,i){
+      var lp=p2c(CX,CY,RM,seg.la),np=p2c(CX,CY,RM,seg.na);
+      h+='<g class="seg-txt" style="pointer-events:none;">';
+      h+='<text x="'+lp.x.toFixed(1)+'" y="'+lp.y.toFixed(1)+'" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="24" font-weight="800" font-family="\'Nunito Sans\',sans-serif">'+seg.label+'</text>';
+      h+='<text x="'+np.x.toFixed(1)+'" y="'+np.y.toFixed(1)+'" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="50" font-weight="300" font-family="\'Nunito Sans\',sans-serif">'+(i+1)+'</text>';
+      h+='</g>';
+    });
+    // center cube
+    h+='<g stroke="#ECECEC" stroke-width="8" stroke-linejoin="round" style="pointer-events:none;">';
+    h+='<path d="M250,200 L302,229 L250,258 L198,229 Z" fill="#70C9CC"/>';
+    h+='<path d="M198,229 L250,258 L250,316 L198,287 Z" fill="#31ADE3"/>';
+    h+='<path d="M302,229 L250,258 L250,316 L302,287 Z" fill="#E59D33"/>';
+    h+='</g>';
     el.innerHTML=h;
   }
 
-  buildWheel('hero-wheel', {darkCenter:false});
-  buildWheel('six-wheel',  {darkCenter:false});
+  buildWheel('hero-wheel', {interactive:true});
+  buildWheel('six-wheel',  {interactive:true});
+
+  var SEG_COLORS=['#70C9CC','#E59D33','#31ADE3'];
+
+  var fwWrap=document.querySelector('.fw-wrap');
+  var activeSeg=0; // Understand shown by default
+
+  function applySeg(idx){
+    activeSeg=idx;
+    document.querySelectorAll('#six-wheel .wheel-seg').forEach(function(p,i){
+      p.style.opacity=(i===idx)?'1':'0.5';
+      p.style.filter=(i===idx)?'drop-shadow(0 0 12px '+SEG_COLORS[i]+'AA)':'';
+    });
+    document.querySelectorAll('.fw-chip[data-seg]').forEach(function(c){
+      c.classList.toggle('fw-active',+c.dataset.seg===idx);
+    });
+    document.querySelectorAll('#fw-connectors g[data-seg]').forEach(function(g){
+      g.classList.toggle('fw-active',+g.dataset.seg===idx);
+    });
+  }
+
+  // Roll over (or tap) a phase to explore its activities; last phase stays active
+  document.querySelectorAll('#six-wheel .wheel-seg').forEach(function(p){
+    p.addEventListener('mouseenter',function(){applySeg(+this.dataset.seg);});
+    p.addEventListener('click',function(){applySeg(+this.dataset.seg);});
+  });
+
+  applySeg(0);
+
+  // ── Connector lines: cards → wheel ──
+  var overlay=document.getElementById('fw-connectors');
+  function drawConnectors(){
+    if(!overlay)return;
+    if(window.innerWidth<=768){overlay.innerHTML='';return;}
+    var wr=fwWrap.getBoundingClientRect();
+    overlay.setAttribute('viewBox','0 0 '+wr.width.toFixed(0)+' '+wr.height.toFixed(0));
+    var ws=document.getElementById('six-wheel').getBoundingClientRect();
+    var scale=ws.width/500;
+    var cx=ws.left-wr.left+250*scale, cy=ws.top-wr.top+252*scale;
+    var R=(192+11)*scale; // just outside the wheel ring
+    var h='';
+    function grp(seg,inner){return'<g data-seg="'+seg+'" stroke="'+SEG_COLORS[seg]+'" fill="'+SEG_COLORS[seg]+'" stroke-width="2" opacity="0.85">'+inner+'</g>';}
+    function cardsFor(seg){return[].slice.call(document.querySelectorAll('.fw-chip[data-seg="'+seg+'"]'));}
+
+    // Understand (top): down from each card, merge, drop to wheel top
+    var top=cardsFor(0).map(function(c){var r=c.getBoundingClientRect();return{x:r.left-wr.left+r.width/2,y:r.bottom-wr.top};});
+    if(top.length===2){
+      var wTop=cy-R, brY=top[0].y+(wTop-top[0].y)*0.5, inner='';
+      top.forEach(function(p){inner+='<circle cx="'+p.x+'" cy="'+p.y+'" r="3.5" stroke="none"/><path fill="none" d="M'+p.x+','+p.y+' V'+brY+' H'+cx+'"/>';});
+      inner+='<path fill="none" d="M'+cx+','+brY+' V'+wTop+'"/>';
+      h+=grp(0,inner);
+    }
+    // Sides: horizontal from each card to a bracket, then into the wheel
+    function side(seg,left){
+      var cards=cardsFor(seg).map(function(c){var r=c.getBoundingClientRect();return{x:(left?r.right:r.left)-wr.left,y:r.top-wr.top+r.height/2};});
+      if(cards.length!==2)return;
+      var edgeX=left?cx-R:cx+R;
+      var brX=cards[0].x+(edgeX-cards[0].x)*0.5;
+      var midY=(cards[0].y+cards[1].y)/2;
+      var dy=midY-cy, ex=Math.sqrt(Math.max(R*R-dy*dy,0));
+      var wx=left?cx-ex:cx+ex;
+      var inner='';
+      cards.forEach(function(p){inner+='<circle cx="'+p.x+'" cy="'+p.y+'" r="3.5" stroke="none"/><path fill="none" d="M'+p.x+','+p.y+' H'+brX+'"/>';});
+      inner+='<path fill="none" d="M'+brX+','+cards[0].y+' V'+cards[1].y+'"/>';
+      inner+='<path fill="none" d="M'+brX+','+midY+' H'+wx+'"/>';
+      h+=grp(seg,inner);
+    }
+    side(2,true);   // Check on the left
+    side(1,false);  // Translate on the right
+    overlay.innerHTML=h;
+    applySeg(activeSeg); // re-mark active connector after redraw
+  }
+  window.addEventListener('resize',drawConnectors);
+  window.addEventListener('load',function(){setTimeout(drawConnectors,700);});
+  setTimeout(drawConnectors,750);
 })();
 </script>
 </body>
